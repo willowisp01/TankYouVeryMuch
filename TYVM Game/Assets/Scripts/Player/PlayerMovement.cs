@@ -9,7 +9,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 10f;
     private Rigidbody2D myBody;
-    public Vector3 mousePos, objectPos;
+    public Camera cam;
+    private Vector2 movement;
+    public Vector2 mousePos;
+
+    public float angle;
+
+    public Vector2 lookDir;
+
+
 
     private void Awake() {
         myBody = GetComponent<Rigidbody2D>();
@@ -19,29 +27,26 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayerMove();
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition); //mouse position (in world coordinates)
+    }
 
+    private void FixedUpdate() {
+        myBody.MovePosition(myBody.position + movement * moveSpeed * Time.deltaTime);
+        lookDir = mousePos - myBody.position; //vector subtraction
+        angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90; //arctangent. we minus 90 because of the 4 quadrants trigonometry.
+        myBody.rotation = angle;    
     }
 
     void PlayerMove() {
-        float horizontalInput = Input.GetAxisRaw("Horizontal"); 
-        float verticalInput = Input.GetAxisRaw("Vertical");
-        transform.position += new Vector3(horizontalInput, verticalInput, 0f) * moveSpeed * Time.deltaTime;
-
-        mousePos = Input.mousePosition; //the mouse position (relative to your screen) 
-        mousePos.z = 0; 
-        objectPos = Camera.main.WorldToScreenPoint(transform.position); //the object position (relative to your screen) 
-
-        float deltaX = mousePos.x - objectPos.x;
-        float deltaY = mousePos.y - objectPos.y;
-        float angle = Mathf.Atan2(deltaY, deltaX) * Mathf.Rad2Deg; //arctangent.
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 270)); //what are euler angles...
+        
 
         //TODO: https://www.youtube.com/watch?v=LNLVOjbrQj4 implement the shooting and rotation in a neater way
     }

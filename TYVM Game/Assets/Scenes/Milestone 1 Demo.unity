@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -207,6 +207,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1274376674 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8091733512714071627, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
+  m_PrefabInstance: {fileID: 8091733514396710107}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1743214504 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8091733512695735155, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
@@ -225,8 +230,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  mousePos: {x: 0, y: 0, z: 0}
-  objectPos: {x: 0, y: 0, z: 0}
+  cam: {fileID: 519420031}
+  mousePos: {x: 0, y: 0}
+  angle: 0
+  lookDir: {x: 0, y: 0}
+--- !u!114 &1743214510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743214504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8bcb66ac874b2498fa701f96449e4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1274376674}
+  bulletPrefab: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
+  bulletForce: 20
+  bulletDuration: 3
 --- !u!1 &1947609215
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +288,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8091733512695735152, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8091733512695735154, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
       propertyPath: m_RootOrder
       value: 2
