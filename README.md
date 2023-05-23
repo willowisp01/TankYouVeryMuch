@@ -140,4 +140,4 @@ As mentioned above, we would like to implement core gameplay features such as th
 
 **Program Flow**
 
-![](Aspose.Words.a1816720-3e60-4aee-80ae-27301cc835e5.001.jpeg)
+![Milestone 1 Flowchart](https://github.com/willowisp01/TankYouVeryMuch/assets/132592621/751319d2-20ee-4df6-946a-36bc4918e775)
