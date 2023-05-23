@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
 
     public Transform firePoint;
     public GameObject bulletPrefab;
-    public float bulletForce = 20f;
+    public float bulletForce = 40f;
     public float bulletDuration = 3f;
 
     // Update is called once per frame

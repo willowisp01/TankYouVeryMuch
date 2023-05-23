@@ -11,8 +11,6 @@ public class PlayerMovement : MonoBehaviour
   
     public Camera cam;
     private Vector2 movement, mousePos;
-    private float angle;
-    private Vector2 lookDir;
     private GameObject tankMain, tankTower;
     private Rigidbody2D tankTowerBody, tankMainBody;
 
@@ -29,7 +27,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Vector2 cameraBottomLeft = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        Vector2 cameraTopRight = cam.ScreenToWorldPoint(new Vector3(cam.scaledPixelWidth, cam.scaledPixelHeight, 0));
+        Debug.Log(cameraTopRight);
     }
 
     // Update is called once per frame
@@ -44,8 +44,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 newPosition = tankMainBody.position + movement * moveSpeed * Time.deltaTime;
         tankMainBody.MovePosition(newPosition);
         tankTowerBody.MovePosition(newPosition);
-        lookDir = mousePos - tankMainBody.position; //vector subtraction
-        angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90; //arctangent. we minus 90 because of the 4 quadrants trigonometry.
+        Vector2 lookDir = mousePos - tankMainBody.position; //vector subtraction
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90; //arctangent. we minus 90 because of the 4 quadrants trigonometry.
         tankTowerBody.rotation = angle;    
     }
 
