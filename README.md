@@ -67,11 +67,11 @@ Pitch Video:
 
 Milestone 1 Poster:
 
-(todo)
+[Milestone 1 Poster](https://drive.google.com/file/d/1D9WzgyLeXH-RecHeC5PS9Bi5luT51xo2/view?usp=share_link)
 
 Milestone 1 Video:
 
-(todo)
+[Milestone 1 Video](https://drive.google.com/file/d/17FlJHIcZVUMxqFhiD-FT8ZyG3qANcgwq/view?usp=drive_link)
 
 
 [Project Log](https://docs.google.com/spreadsheets/d/1quSz3zc2BvAIu-BQ3Xgk_EfCRI6jFS2fdS3GZb3G5JI/edit?usp=share_link)
