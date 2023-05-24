@@ -65,11 +65,9 @@ Pitch Video:
 
 **Milestone 1** 
 
-Milestone 1 Poster:
 
 [Milestone 1 Poster](https://drive.google.com/file/d/1D9WzgyLeXH-RecHeC5PS9Bi5luT51xo2/view?usp=share_link)
 
-Milestone 1 Video:
 
 [Milestone 1 Video](https://drive.google.com/file/d/17FlJHIcZVUMxqFhiD-FT8ZyG3qANcgwq/view?usp=drive_link)
 
