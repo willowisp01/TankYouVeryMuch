@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
     [SerializeField]
     private float moveSpeed = 10f;
   
@@ -15,37 +12,36 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D tankTowerBody, tankMainBody;
 
     private void Awake() {
-        //this can also be done via unity drag and drop. 
+        // This can also be done via unity drag and drop. 
         tankMain = transform.Find("SmallTankA").gameObject; 
         tankTower = transform.Find("Tower").gameObject;
         tankMainBody = tankMain.GetComponent<Rigidbody2D>();
         tankTowerBody = tankTower.GetComponent<Rigidbody2D>();
 
-        //can be replaced with tags possibly to avoid hardcoding the name... https://answers.unity.com/questions/893966/how-to-find-child-with-tag.html
+        // Can be replaced with tags possibly to avoid hardcoding the name... https://answers.unity.com/questions/893966/how-to-find-child-with-tag.html
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         Vector2 cameraBottomLeft = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
         Vector2 cameraTopRight = cam.ScreenToWorldPoint(new Vector3(cam.scaledPixelWidth, cam.scaledPixelHeight, 0));
         Debug.Log(cameraTopRight);
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition); //mouse position (in world coordinates)
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition); // Mouse position (in world coordinates)
     }
 
-    private void FixedUpdate() { //for physics stuff
+    // For physics stuff
+    private void FixedUpdate() {
         Vector2 newPosition = tankMainBody.position + movement * moveSpeed * Time.deltaTime;
         tankMainBody.MovePosition(newPosition);
         tankTowerBody.MovePosition(newPosition);
-        Vector2 lookDir = mousePos - tankMainBody.position; //vector subtraction
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90; //arctangent. we minus 90 because of the 4 quadrants trigonometry.
+        Vector2 lookDir = mousePos - tankMainBody.position; // Vector subtraction
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90; // Arctangent. We minus 90 because of the 4 quadrants trigonometry.
         tankTowerBody.rotation = angle;    
     }
 
