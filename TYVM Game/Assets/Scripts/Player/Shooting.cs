@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
-{
-
+public class Shooting : MonoBehaviour {
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 40f;
@@ -13,12 +11,12 @@ public class Shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1")) { //left click
+        if(Input.GetButtonDown("Fire1")) { // Left click
             Shoot(bulletForce, bulletDuration);
         }
     }
 
-    //Shoots a bullet with bulletForce and destroys it after bulletDuration. 
+    // Shoots a bullet with bulletForce and destroys it after bulletDuration. 
     void Shoot(float bulletForce, float bulletDuration) {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Destroy(bullet, bulletDuration);
