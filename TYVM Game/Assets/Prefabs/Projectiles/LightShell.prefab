@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2684217282838684828}
   - component: {fileID: 7984467707572815609}
   - component: {fileID: 8381098136146115927}
+  - component: {fileID: 1973307030454926361}
   m_Layer: 0
   m_Name: LightShell
   m_TagString: Untagged
@@ -230,3 +231,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1973307030454926361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412875855320464894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811c1d47da59b5340a420031e5567d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDuration: 3
