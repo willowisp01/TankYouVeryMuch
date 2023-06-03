@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8091733512695735153}
   - component: {fileID: 7063391219098205968}
   - component: {fileID: 1743214510}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,10 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8bcb66ac874b2498fa701f96449e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 8091733512714071627}
-  bulletPrefab: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
   bulletForce: 20
-  bulletDuration: 3
+  bulletPrefab: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
+  firePoint: {fileID: 8091733512714071627}
 --- !u!1 &8091733512714071636
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8091733512714071627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ProjectileSource
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -130,7 +129,7 @@ GameObject:
   - component: {fileID: 8091733512917833281}
   - component: {fileID: 8091733512917833280}
   - component: {fileID: 2499030208596463342}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8091733513254894767}
   - component: {fileID: 8091733513254894766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8091733513349714104}
   - component: {fileID: 8091733513349714111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8091733513709969407}
   - component: {fileID: 8091733513709969406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8091733513765556045}
   - component: {fileID: 8091733513765556044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GunConnector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -576,7 +575,7 @@ GameObject:
   - component: {fileID: 4843242585998048307}
   - component: {fileID: 607160620}
   - component: {fileID: 8824386495416372335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallTankA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +709,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8091733514398714822}
   - component: {fileID: 8091733514398714821}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
