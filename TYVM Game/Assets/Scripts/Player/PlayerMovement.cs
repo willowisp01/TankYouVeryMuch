@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour {
     private float moveSpeed = 10f;
 
     [SerializeField]
-    private float rotationSpeed = 50f;
+    private float rotationSpeed = 10000f;
   
     public Camera cam;
-    private Vector2 movement, mousePos;
+    private Vector2 movement, smoothedMovement, smoothCurrentVelocity, mousePos;
     private GameObject tankHull, tankTower;
     private Rigidbody2D tankHullBody, tankTowerBody;
 
@@ -47,10 +47,10 @@ public class PlayerMovement : MonoBehaviour {
 
     // This method allows for tank movement
     private void Movement() {
-        Vector2 newPosition = tankHullBody.position + movement * moveSpeed * Time.deltaTime;
+        smoothedMovement = Vector2.SmoothDamp(smoothedMovement, movement, ref smoothCurrentVelocity, 0.1f); // Smoothens movement
+        Vector2 newPosition = tankHullBody.position + smoothedMovement * moveSpeed * Time.deltaTime;
         tankHullBody.MovePosition(newPosition);
         tankTowerBody.MovePosition(newPosition);
-        // Can consider using Vector2.SmoothDamp to smoothen movement, as well as potentially add some small acceleration and deceleration for more realistic movement
     }
 
     // This method allows for turret rotation to be controlled by the mouse
@@ -63,11 +63,11 @@ public class PlayerMovement : MonoBehaviour {
 
     // This method ensures that the hull faces the direction of movement
     private void BodyRotation() {
-        if (movement != Vector2.zero) {
-            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement * moveSpeed); // 2D games are upwards and downwards (x and y-axis)
-            Quaternion hullRotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);    
+        if (smoothedMovement != Vector2.zero) {
+            Quaternion toRotation = Quaternion.LookRotation(transform.forward, smoothedMovement); // 2D games are upwards and downwards (x and y-axis)
+            Quaternion hullRotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
             tankHullBody.MoveRotation(hullRotation);
-            // TODO: abrupt rotation >= 90° results in snapping to the new direction which should be changed
+            // TODO: abrupt rotation >90° results in simply flipping to the new direction which should be changed
         }
     }
 
