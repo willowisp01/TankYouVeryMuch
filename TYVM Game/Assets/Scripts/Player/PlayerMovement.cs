@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour {
         tankTower = GameObject.FindWithTag("PlayerTower");
         tankHullBody = tankHull.GetComponent<Rigidbody2D>();
         tankTowerBody = tankTower.GetComponent<Rigidbody2D>();
+        cam = GameObject.FindObjectOfType<Camera>(); //looks for the camera
         playerTankPos = new Vector2(tankHull.transform.position.x, tankHull.transform.position.y); //tank position centered on tank hull
     }
 
