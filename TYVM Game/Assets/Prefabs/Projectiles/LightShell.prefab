@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2684217282838684828}
   - component: {fileID: 7984467707572815609}
   - component: {fileID: 8381098136146115927}
-  - component: {fileID: 1973307030454926361}
+  - component: {fileID: 657544484325066933}
   m_Layer: 7
   m_Name: LightShell
   m_TagString: Projectile
@@ -231,7 +231,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &1973307030454926361
+--- !u!114 &657544484325066933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -243,4 +243,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811c1d47da59b5340a420031e5567d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDuration: 3
+  durability: 10
