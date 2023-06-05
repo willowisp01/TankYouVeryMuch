@@ -11,6 +11,8 @@ TagManager:
   - PlayerHull
   - PlayerTower
   - Enemy
+  - EnemyHull
+  - EnemyTower
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - UI
   - Player
   - Projectiles
-  - 
+  - Enemies
   - 
   - 
   - 
