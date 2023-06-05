@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8091733512695735153}
   - component: {fileID: 7063391219098205968}
   - component: {fileID: 1743214510}
+  - component: {fileID: 723895429}
   m_Layer: 6
   m_Name: Player 1
   m_TagString: Player
@@ -70,8 +71,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  rotationSpeed: 10
+  rotationSpeed: 10000
   cam: {fileID: 0}
+  playerTankPos: {x: 0, y: 0}
 --- !u!114 &1743214510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,9 +86,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8bcb66ac874b2498fa701f96449e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletForce: 20
+  bulletForce: 40
   bulletPrefab: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
   firePoint: {fileID: 8091733512714071627}
+--- !u!114 &723895429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091733512695735155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51604f657a0c9ac4e97f679e046d201b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8091733512714071636
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +145,7 @@ GameObject:
   - component: {fileID: 2499030208596463342}
   m_Layer: 6
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: PlayerHull
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -574,10 +588,10 @@ GameObject:
   - component: {fileID: 8091733513768585338}
   - component: {fileID: 4843242585998048307}
   - component: {fileID: 607160620}
-  - component: {fileID: 8824386495416372335}
+  - component: {fileID: 1422141669}
   m_Layer: 6
   m_Name: SmallTankA
-  m_TagString: Untagged
+  m_TagString: PlayerHull
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,7 +603,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8091733513768585339}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -620,7 +634,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &607160620
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -647,7 +661,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0916665, y: 2.1376314}
   m_EdgeRadius: 0
---- !u!212 &8824386495416372335
+--- !u!212 &1422141669
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -664,7 +678,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
+  m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
@@ -679,7 +693,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -687,7 +701,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 519db26ac7648064fabb6f100ecfe3db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

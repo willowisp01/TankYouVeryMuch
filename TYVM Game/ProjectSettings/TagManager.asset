@@ -8,6 +8,9 @@ TagManager:
   - Hull
   - Wall
   - Projectile
+  - PlayerHull
+  - PlayerTower
+  - Enemy
   layers:
   - Default
   - TransparentFX
