@@ -5,7 +5,13 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
+    private GameLogic gameLogic;
     private int health;
+
+    private void Awake() {
+        gameLogic =  GameObject.Find("GameLogicManager").GetComponent<GameLogic>();
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -14,10 +20,7 @@ public class Health : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown("x")) { //just for testing
-            takeDamage(1);
-            Debug.Log(health);
-        }
+
     }
 
     private void setHealth(int health) {
@@ -32,6 +35,7 @@ public class Health : MonoBehaviour
     }
 
     public void destroySelf() {
+        
         gameObject.GetComponent<PlayerMovement>().enabled = false;
         gameObject.GetComponent<Shooting>().enabled = false; 
         //disables controls
@@ -44,7 +48,7 @@ public class Health : MonoBehaviour
         }
         //disables all enemies
 
-        Debug.Log("you died");
+        gameLogic.triggerDefeat();
         //TODO: put some explosion effect or something
         //TODO: transit to you lose screen
     }

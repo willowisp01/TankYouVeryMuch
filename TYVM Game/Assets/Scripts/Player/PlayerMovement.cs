@@ -29,15 +29,13 @@ public class PlayerMovement : MonoBehaviour {
 
     // Start is called before the first frame update
     private void Start() {
-        Vector2 cameraBottomLeft = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
-        Vector2 cameraTopRight = cam.ScreenToWorldPoint(new Vector3(cam.scaledPixelWidth, cam.scaledPixelHeight, 0));
-        Debug.Log(cameraTopRight);
+        //Vector2 cameraBottomLeft = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        //Vector2 cameraTopRight = cam.ScreenToWorldPoint(new Vector3(cam.scaledPixelWidth, cam.scaledPixelHeight, 0));
     }
 
     // Update is called once per frame
     private void Update() {
         playerTankPos = new Vector2(tankHull.transform.position.x, tankHull.transform.position.y);
-        //Debug.Log(tankPos);
         movement.x = Input.GetAxis("Horizontal");
         movement.y = Input.GetAxis("Vertical");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition); // Mouse position (in world coordinates)
