@@ -7,7 +7,6 @@ public class GameLogic : MonoBehaviour
 {
     [SerializeField]
     private float time = 0f;
-
     private bool stopwatchRunning = false;
     private int totalEnemies = 0;
     private int enemiesRemaining = 0;
@@ -57,6 +56,20 @@ public class GameLogic : MonoBehaviour
 
     public void triggerDefeat() {
         stopStopwatch();
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<PlayerMovement>().enabled = false;
+        player.GetComponent<Shooting>().enabled = false; 
+        //disables controls
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject e in enemies) {
+            //e.GetComponent<EnemyMovement>().enabled = false;
+            e.GetComponent<EnemyShooting>().enabled = false;
+        }
+        //disables all enemies
+
         Debug.Log("You died!");
         stageSummary();
     }

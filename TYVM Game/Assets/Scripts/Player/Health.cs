@@ -36,18 +36,6 @@ public class Health : MonoBehaviour
 
     public void destroySelf() {
         
-        gameObject.GetComponent<PlayerMovement>().enabled = false;
-        gameObject.GetComponent<Shooting>().enabled = false; 
-        //disables controls
-
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
-        foreach (GameObject e in enemies) {
-            //e.GetComponent<EnemyMovement>().enabled = false;
-            e.GetComponent<EnemyShooting>().enabled = false;
-        }
-        //disables all enemies
-
         gameLogic.triggerDefeat();
         //TODO: put some explosion effect or something
         //TODO: transit to you lose screen
