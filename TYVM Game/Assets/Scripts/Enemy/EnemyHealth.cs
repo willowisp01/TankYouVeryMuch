@@ -5,10 +5,16 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
 private int health;
+private GameLogic gameLogic;
+
+    private void Awake() {
+        gameLogic =  GameObject.Find("GameLogicManager").GetComponent<GameLogic>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        gameLogic.stageNumber = 1; //for now
         setHealth(3);
     }
 
@@ -24,7 +30,8 @@ private int health;
     }
 
     public void destroySelf() {
-        Debug.Log("enemy died");
+        //Debug.Log("enemy died");
+        gameLogic.enemyDefeated();
         //TODO: put some explosion effect or something
         Destroy(gameObject);
     }

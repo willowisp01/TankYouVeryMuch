@@ -20,7 +20,6 @@ public class EnemyMovement : MonoBehaviour
         
         playerTank = GameObject.FindWithTag("Player");
         pm = playerTank.GetComponent<PlayerMovement>();
-        Debug.Log(pm);
         //i used drag and drop to get references to tankHull etc, because there may be multiple enemies with the same tag.
         //there are some downsides though 
     }
@@ -30,7 +29,6 @@ public class EnemyMovement : MonoBehaviour
     {
         enemyPos = new Vector2(tankTowerBody.transform.position.x, tankTowerBody.transform.position.y);
         aimVector = (pm.playerTankPos - enemyPos).normalized;
-        Debug.Log("aim vector:" + aimVector);
     }
 
     // Update is called once per frame
@@ -38,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
     {   
         enemyPos = new Vector2(tankTowerBody.transform.position.x, tankTowerBody.transform.position.y);
         aimVector = (pm.playerTankPos - enemyPos).normalized;
-        Debug.DrawRay(enemyPos, aimVector, Color.cyan, 0.01f); 
+        //Debug.DrawRay(enemyPos, aimVector, Color.cyan, 0.01f); 
     }
 
     private void FixedUpdate() {
