@@ -24,19 +24,14 @@ public class GameLogic : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (CheckForEnemies()) {
-            TriggerVictory();
-        }
-        if (player.GetComponent<Health>().IsDead()) {
-            TriggerDefeat();
-        }
+
     }
 
-    private bool CheckForEnemies() {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        enemiesRemaining = enemies.Length;
-        Debug.Log("Enemies Remaining: " + enemiesRemaining);
-        return enemiesRemaining <= 0;
+    public void EnemyDefeated(GameObject enemy) {
+        enemiesRemaining--;
+        if (enemiesRemaining <= 0) {
+            TriggerVictory();
+        }
     }
 
     private void TriggerVictory() {
@@ -51,13 +46,14 @@ public class GameLogic : MonoBehaviour {
 
     public void TriggerDefeat() {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        // Disable all enemies
+        // Disable all remaining enemies
         foreach (GameObject e in enemies) {
             e.GetComponent<EnemyMovement>().enabled = false;
             e.GetComponent<EnemyShooting>().enabled = false;
         }
         Debug.Log("You died!");
         StageSummary();
+        // TODO: transit to you lose screen
     }
 
     private void StageSummary() {

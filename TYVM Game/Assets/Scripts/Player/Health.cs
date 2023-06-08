@@ -6,7 +6,11 @@ public class Health : MonoBehaviour {
 
     [SerializeField]
     private int health = 3;
-    private bool isDead = false;
+    private GameLogic gameLogic;
+
+    private void Awake() {
+        gameLogic = GameObject.Find("GameLogicManager").GetComponent<GameLogic>();
+    }
 
     private void Update() {
 
@@ -19,13 +23,8 @@ public class Health : MonoBehaviour {
         }
     }
 
-    public bool IsDead() {
-        return isDead;
-    }
-
     private void DestroySelf() {
-        isDead = true;
+        gameLogic.TriggerDefeat();
         // TODO: put some explosion effect or something
-        // TODO: transit to you lose screen
     }
 }
