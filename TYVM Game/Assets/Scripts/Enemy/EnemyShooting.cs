@@ -2,10 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : MonoBehaviour
-{
-    private float cooldown = 3f; //cooldown between enemy shots
-    private float timer; //time left until enemy tank fires
+public class EnemyShooting : MonoBehaviour {
 
     [SerializeField]
     private float bulletForce = 40f;
@@ -14,30 +11,34 @@ public class EnemyShooting : MonoBehaviour
     private GameObject bulletPrefab;
 
     [SerializeField]
-    private Transform firePoint;
+    private AudioSource fireSound;
 
-    private void Start() {
+    private Transform firePoint;
+    private float cooldown = 3f; // Cooldown between enemy shots
+    private float timer; // Time left until enemy tank fires
+
+    private void Awake() {
+        firePoint = gameObject.transform.Find("Tower/ProjectileSource");
         timer = cooldown;
     }
 
     // Update is called once per frame
     private void Update() {
+        ShouldShoot();
+    }
+
+    private void ShouldShoot() {
         timer -= Time.deltaTime;
         if (timer <= 0) {
-            Shoot(bulletForce);
-            resetCooldown(cooldown);
+            Shoot();
+            timer = cooldown;
         }
     }
 
-    private void resetCooldown(float cooldown) {
-        timer = cooldown;
-    }
-
     // Shoots a bullet with bulletForce
-    private void Shoot(float bulletForce) {
+    private void Shoot() {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        int playerLayer = LayerMask.NameToLayer("Player");
-        bullet.layer = playerLayer; //changed the bullet layer to player such that enemy bullets contact player
+        fireSound.Play();
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
