@@ -294,14 +294,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4923588079105260035, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 3412875855320464894, guid: ea67b437eceeb65499e793b852050b72, type: 3}
-    - target: {fileID: 4923588079708156731, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
 --- !u!4 &450369767 stripped
@@ -591,14 +583,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 607160620, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1264259613972760813, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
-      propertyPath: m_TagString
-      value: PlayerHull
-      objectReference: {fileID: 0}
     - target: {fileID: 8091733512695735154, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -656,10 +640,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2774724694746057164, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 3755867431301601636, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: m_Name
       value: EnemyTankA (1)
@@ -707,14 +687,6 @@ PrefabInstance:
     - target: {fileID: 3755867431301601637, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4923588079105260035, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 3412875855320464894, guid: ea67b437eceeb65499e793b852050b72, type: 3}
-    - target: {fileID: 4979596106488533596, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}

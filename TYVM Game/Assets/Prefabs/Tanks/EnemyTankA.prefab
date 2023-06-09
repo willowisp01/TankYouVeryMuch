@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletForce: 40
-  bulletPrefab: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
+  bulletPrefab: {fileID: 3412875855320464894, guid: ea67b437eceeb65499e793b852050b72, type: 3}
   fireSound: {fileID: 6781299822132705538}
 --- !u!114 &4923588079105260034
 MonoBehaviour:
