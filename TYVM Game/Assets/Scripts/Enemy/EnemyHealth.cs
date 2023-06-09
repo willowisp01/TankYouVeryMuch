@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour {
     private GameLogic gameLogic;
 
     private void Awake() {
-        gameLogic = GameObject.Find("GameLogicManager").GetComponent<GameLogic>();
+        gameLogic = GameObject.Find("GameManager").GetComponent<GameLogic>();
     }
 
     public void TakeDamage(int damage) {
@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour {
 
     public void DestroySelf() {
         gameLogic.EnemyDefeated(gameObject);
-        //TODO: put some explosion effect or something
+        // TODO: put some explosion effect or something
         Destroy(gameObject);
     }
 }
