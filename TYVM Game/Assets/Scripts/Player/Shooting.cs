@@ -13,7 +13,7 @@ public class Shooting : MonoBehaviour {
     [SerializeField]
     private AudioSource fireSound;
 
-    private Transform firePoint;
+    public Transform firePoint;
 
     private void Awake() {
         firePoint = gameObject.transform.Find("Tower/ProjectileSource");
@@ -32,5 +32,9 @@ public class Shooting : MonoBehaviour {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    }
+
+    public Transform GetFirePoint() {
+        return firePoint;
     }
 }

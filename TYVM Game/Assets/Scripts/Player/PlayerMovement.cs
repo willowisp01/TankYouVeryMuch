@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     private float rotationSpeed = 10000f;
   
     private Camera cam;
-    private Vector2 movement, smoothedMovement, smoothCurrentVelocity, mousePos;
+    private Vector2 movement, smoothedMovement, smoothCurrentVelocity, mousePos, lookDir;
     private Rigidbody2D tankHull, tankTower;
 
     private void Awake() {
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // This method allows for turret rotation to be controlled by the mouse
     private void TowerRotation() {
-        Vector2 lookDir = mousePos - tankHull.position; // Vector subtraction
+        lookDir = mousePos - tankHull.position; // Vector subtraction
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90; // Arctangent; we minus 90 because of the 4 quadrants trigonometry
         tankTower.rotation = angle;
         // Can consider changing to Quaternion instead to avoid doing the math ourselves
@@ -65,6 +65,10 @@ public class PlayerMovement : MonoBehaviour {
             tankHull.MoveRotation(hullRotation);
             // TODO: abrupt rotation >90� results in simply flipping to the new direction which should be changed
         }
+    }
+
+    public Vector2 GetLookDir() {
+        return lookDir;
     }
 
     //TODO: https://www.youtube.com/watch?v=LNLVOjbrQj4 implement the shooting and rotation in a neater way
