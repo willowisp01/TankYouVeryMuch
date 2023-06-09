@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - EnemyHull
   - EnemyTower
+  - FirePoint
   layers:
   - Default
   - TransparentFX
@@ -21,11 +22,11 @@ TagManager:
   - Water
   - UI
   - Player
-  - Projectiles
+  - PlayerProjectiles
   - Enemies
-  - 
-  - 
-  - 
+  - EnemyProjectiles
+  - PlayerTrigger
+  - EnemyTrigger
   - 
   - 
   - 

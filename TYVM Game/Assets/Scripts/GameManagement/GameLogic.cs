@@ -1,98 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+public class GameLogic : MonoBehaviour {
 
-public class GameLogic : MonoBehaviour
-{
     [SerializeField]
-    private float time = 0f;
-    private bool stopwatchRunning = false;
-    private int totalEnemies = 0;
-    private int enemiesRemaining = 0;
-    public int stageNumber;
-    public GameObject[] enemies;
+    private int totalEnemies;
+    private int enemiesRemaining;
+    private int stageNumber;
+    private GameObject player;
+    private GameObject[] enemies;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
+    private void Awake() {
+        player = GameObject.FindGameObjectWithTag("Player");
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         totalEnemies = enemies.Length;
         enemiesRemaining = totalEnemies;
         Debug.Log("Total Enemies: " + totalEnemies);
-
-        restartStopwatch();
+        stageNumber = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        updateStopwatch();
+    void Update() {
+
     }
 
-    public void enemyDefeated() {
+    public void EnemyDefeated(GameObject enemy) {
         enemiesRemaining--;
-        if (allEnemiesDefeated()){
-            triggerVictory(stageNumber);
-        }
-    }
-
-    private bool allEnemiesDefeated() { //check if there are any remaining enemies.
-    Debug.Log("Enemies Remaining: " + enemiesRemaining);
         if (enemiesRemaining <= 0) {
-            return true;
+            TriggerVictory();
         }
-        return false;
     }
 
-    private void triggerVictory(int stageNumber) {
-        //TODO: add stageNumber to a list of cleared stages. 
-        //feel free to add achievements, coins etc. to this method later on.
-        stopStopwatch();
+    private void TriggerVictory() {
+        // TODO: add stageNumber to a list of cleared stages. 
+        // Feel free to add achievements, coins etc. to this method later on.
         Debug.Log("Stage " + stageNumber + " cleared!");
-        stageSummary();
+        // Disable player controls (commented out for now to allow us to continue testing other things after killing enemies)
+        // player.GetComponent<PlayerMovement>().enabled = false;
+        // player.GetComponent<Shooting>().enabled = false;
+        StageSummary();
     }
 
-    public void triggerDefeat() {
-        stopStopwatch();
-
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerMovement>().enabled = false;
-        player.GetComponent<Shooting>().enabled = false; 
-        //disables controls
-
+    public void TriggerDefeat() {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-
+        // Disable all remaining enemies
         foreach (GameObject e in enemies) {
-            //e.GetComponent<EnemyMovement>().enabled = false;
+            e.GetComponent<EnemyMovement>().enabled = false;
             e.GetComponent<EnemyShooting>().enabled = false;
         }
-        //disables all enemies
-
         Debug.Log("You died!");
-        stageSummary();
+        StageSummary();
+        // TODO: transit to you lose screen
     }
 
-    private void restartStopwatch() { //starts a stopwatch
-        time = 0;
-        stopwatchRunning = true;
-    }
-
-    private void updateStopwatch() { //stops the stopwatch
-        if (stopwatchRunning) {
-            time += Time.deltaTime;
-        }
-    }
-
-    private void stageSummary() {
+    private void StageSummary() {
         Debug.Log("#####Summary#####");
         Debug.Log("Enemies defeated: " + (totalEnemies - enemiesRemaining) + " of " + totalEnemies);
-        Debug.Log("Time Elapsed (seconds): " + System.Math.Round(time, 2));
-    }
-
-    private float stopStopwatch() { //stops a stopwatch 
-        stopwatchRunning = false;
-        return time;
+        Debug.Log("Time Elapsed (seconds): " + System.Math.Round(Time.time, 2));
     }
 }

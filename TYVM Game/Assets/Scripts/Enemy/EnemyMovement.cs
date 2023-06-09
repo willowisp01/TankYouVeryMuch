@@ -2,41 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
-{
+public class EnemyMovement : MonoBehaviour {
 
-    public Vector2 enemyPos; //the position of enemy (this) tank
-
-    [SerializeField]
-    private GameObject tankHull, tankTower, playerTank; //playerTank is the player tank, not this (enemy) tank!
-    [SerializeField]
-    private Rigidbody2D tankHullBody, tankTowerBody;
-
-    private PlayerMovement pm;
-
-    private Vector2 aimVector; //vector drawn from enemy tank position to player tank posisiton
+    private GameObject playerTank; // playerTank is the player tank, not this (enemy) tank!
+    private Rigidbody2D tankHull, tankTower; 
+    private Vector2 enemyPos, playerTankPos; // The position of this tank and the player
+    private Vector2 aimVector; // Vector drawn from enemy tank position to player tank posisiton
 
     private void Awake() {
-        
-        playerTank = GameObject.FindWithTag("Player");
-        pm = playerTank.GetComponent<PlayerMovement>();
-        //i used drag and drop to get references to tankHull etc, because there may be multiple enemies with the same tag.
-        //there are some downsides though 
+        playerTank = GameObject.FindWithTag("PlayerHull");
+        tankHull = gameObject.transform.GetChild(0).GetComponent<Rigidbody2D>();
+        tankTower = gameObject.transform.GetChild(1).GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        enemyPos = new Vector2(tankTowerBody.transform.position.x, tankTowerBody.transform.position.y);
-        aimVector = (pm.playerTankPos - enemyPos).normalized;
+    void Start() {
+        Aim();
     }
 
     // Update is called once per frame
-    void Update()
-    {   
-        enemyPos = new Vector2(tankTowerBody.transform.position.x, tankTowerBody.transform.position.y);
-        aimVector = (pm.playerTankPos - enemyPos).normalized;
-        //Debug.DrawRay(enemyPos, aimVector, Color.cyan, 0.01f); 
+    void Update() {
+        Aim();
     }
 
     private void FixedUpdate() {
@@ -44,9 +30,16 @@ public class EnemyMovement : MonoBehaviour
     }
 
     private void Movement() {
-        tankTowerBody.position = tankHullBody.position; //to keep them together. pretty cheese solution tbh
+        tankTower.position = tankHull.position; //to keep them together. pretty cheese solution tbh
         float angle = Vector2.SignedAngle(Vector2.up, aimVector);
-        tankTowerBody.rotation = angle;
+        tankTower.rotation = angle;
         //https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/    
     } 
+
+    private void Aim() {
+        enemyPos = tankTower.position;
+        playerTankPos = playerTank.transform.position;
+        aimVector = (playerTankPos - enemyPos).normalized;
+        // Debug.DrawRay(enemyPos, aimVector, Color.cyan, 0.01f);
+    }
 }
