@@ -45,16 +45,15 @@ public class Trajectory : MonoBehaviour
 
     private void Reflect(Vector2 position, Vector2 inputDir, float distRemaining, int reflectCount) { 
         RaycastHit2D hit = Physics2D.Raycast(position, inputDir, distRemaining);
-        float distTraversed = hit.distance;
         Vector2 newInputDir = Vector2.Reflect(inputDir, hit.normal);
         Vector2 newPosition = hit.point + newInputDir.normalized * 0.01f; 
+        float distTraversed = hit.distance;
         float newDistRemaining = distRemaining - distTraversed;
 
         if (reflectCount <= 0) { //if no reflects yet, add starting position (occurs only once)
             points.Add(position);
         }
 
-        Debug.Log(hit.collider);
         if (hit.collider != null) { //we hit something
             reflectCount++;
             if (distRemaining > 0) {
