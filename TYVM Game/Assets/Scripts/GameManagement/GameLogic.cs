@@ -21,7 +21,7 @@ public class GameLogic : MonoBehaviour {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         totalEnemies = enemies.Length;
         enemiesRemaining = totalEnemies;
-        Debug.Log("Total Enemies: " + totalEnemies);
+        //Debug.Log("Total Enemies: " + totalEnemies);
     }
 
     // Update is called once per frame
@@ -61,7 +61,7 @@ public class GameLogic : MonoBehaviour {
 
     public void TriggerDefeat() {
         DisableEnemies();
-        Debug.Log("You died!");
+        //Debug.Log("You died!");
         endScreen.SetActive(true);
         screenPrinter.Result("DEFEAT");
     }

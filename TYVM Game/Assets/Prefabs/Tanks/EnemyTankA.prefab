@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142355226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05000019, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -356,19 +356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e85ec3c066c3de34bb3296ca217e7fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 0
+  debug: 1
+  lineRenderer: {fileID: 962219773}
   bulletForce: 40
   bulletPrefab: {fileID: 3412875855320464894, guid: ea67b437eceeb65499e793b852050b72, type: 3}
   fireSound: {fileID: 6781299822132705538}
-  enemyPos: {x: 0, y: 0}
-  playerTankPos: {x: 0, y: 0}
-  aimVector: {x: 0, y: 0}
-  aimVectorAdvanced: {x: 0, y: 0}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 0
   cooldown: 3
-  lineRenderer: {fileID: 962219773}
 --- !u!114 &4923588079105260034
 MonoBehaviour:
   m_ObjectHideFlags: 0

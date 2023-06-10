@@ -5,7 +5,9 @@ using UnityEngine;
 public class Radar : MonoBehaviour
 {
     //[SerializeField]
-    float rotationSpeed = 45; //degrees per second
+    float rotationSpeed = 90; //degrees per second.
+    //too high and will often miss. too low and tank will hardly find any suitable shots.
+
     [SerializeField]
     Vector2 lookDir;
 

@@ -53,12 +53,12 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.CompareTag("PlayerHull")) {
-            Debug.Log("Player was hit!");
+            //Debug.Log("Player was hit!");
             Health playerHealth = collision.GetComponentInParent<Health>();
             playerHealth.TakeDamage(damage);
             DestroyProjectile();
         } else if (collision.CompareTag("EnemyHull")) {
-            Debug.Log("Enemy was hit!");
+            //Debug.Log("Enemy was hit!");
             EnemyHealth enemyHealth = collision.GetComponentInParent<EnemyHealth>();
             enemyHealth.TakeDamage(damage);
             DestroyProjectile();

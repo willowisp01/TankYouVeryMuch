@@ -7,6 +7,8 @@ public class EnemyShooting : MonoBehaviour {
     //Fields for advanced aiming
     [SerializeField]
     bool debug = false;
+    private bool foundAdvancedPath = false;
+    private float latestAdvancedPathAngle;
 
     [SerializeField]
     LineRenderer lineRenderer;
@@ -61,19 +63,29 @@ public class EnemyShooting : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        Aim();
-        AdvancedAim();
-        ShootLogic();
+        UpdateAdvancedAngle();
+        if (timer > 0.2 && timer <= 0.3) { //take aim for a while before shooting (if not the shooting is off)
+            AdjustAim();
+        } else if (timer <= 0) {
+            timer = cooldown;
+            ShootBullet();
+            foundAdvancedPath = false;
+        }
     }
 
-    private void ShootLogic() { //this goes in fixedupdate because of raycast calculations
-        if (timer <= 0) { //shoot and reset cooldown
-            timer = cooldown;
-            if (HasClearLineOfSight()) {
-                ShootBullet();
-            } else {
-                //TODO: implement advanced shooting logic
-            }
+    private void AdjustAim() {
+        //selection logic
+        if (HasClearLineOfSight()) { 
+            //if has a clear line of sight, aim straight
+            float newAngle = Vector2.SignedAngle(Vector2.up, aimVector);
+            enemyTankTowerRigidbody.MoveRotation(newAngle);
+        } else if (foundAdvancedPath) { 
+            //no clear line of sight, but UpdateAdvancedAngle found an indirect path while cooling down
+            float newAngle = latestAdvancedPathAngle;
+            //uses the latest stored advanced angle
+            enemyTankTowerRigidbody.MoveRotation(newAngle);
+        } else {
+            //no new way to shoot found. stick to previous angle
         }
     }
 
@@ -87,7 +99,7 @@ public class EnemyShooting : MonoBehaviour {
     }
 
     private void UpdateAimVectors() { //updates the aiming vector for Aim()
-        //for Aim()
+        //for HasClearLineOfSight()
         enemyPos = enemyTankTowerRigidbody.position;
         playerTankPos = playerHull.transform.position;
         aimVector = (playerTankPos - enemyPos).normalized;
@@ -96,16 +108,19 @@ public class EnemyShooting : MonoBehaviour {
         aimVectorAdvanced = radar.GetDirection();
     }
 
-    private void Aim() { //rotates enemyTankTowerRigidbody to point at player tank
-        float angle = Vector2.SignedAngle(Vector2.up, aimVector);
-        enemyTankTowerRigidbody.rotation = angle;
-    }
-
-    private void AdvancedAim() { //aims in a way that a reflected bullet can hit player
+    private void UpdateAdvancedAngle() { 
+        /*
+        If possible to hit player indirectly from aimVectorAdvanced (provided by radar), sets latestAdvancedPathAngle
+        to aimVectorAdvanced, and foundAdvancedPath to be true.
+        */
         bool playerFound = Reflect(enemyPos, aimVectorAdvanced, 50f, 0); //enemy can detect path to a player from 50f away
-        Debug.Log(playerFound);
         if (debug) { //optional
             DrawLine();
+        }
+        float angle = Vector2.SignedAngle(Vector2.up, radar.GetDirection());
+        if (playerFound) { 
+            latestAdvancedPathAngle = angle;
+            foundAdvancedPath = true;
         }
     }
 
@@ -134,7 +149,7 @@ public class EnemyShooting : MonoBehaviour {
                 if (hit.collider.gameObject.tag == "Wall" && reflectCount <= maxReflects) {
                     return Reflect(newPosition, newInputDir, newDistRemaining, reflectCount);
                 } else if (hit.collider.gameObject.tag == "PlayerHull") {
-                    Debug.Log("player found");
+                    //Debug.Log("player found");
                     return true;
                 }
             } 
