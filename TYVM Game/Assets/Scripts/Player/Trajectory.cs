@@ -5,7 +5,7 @@ using UnityEngine;
 public class Trajectory : MonoBehaviour
 {
     int maxReflects = 3; //number of possible reflections
-    float range = 10f; //range of trajectory line
+    float range = 12f; //range of trajectory line
 
     [SerializeField]
     private Vector2 lookDir;
