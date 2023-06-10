@@ -18,6 +18,9 @@ public class EnemyShooting : MonoBehaviour {
     private Vector2 enemyPos, playerTankPos, aimVector; //position of the tank towers' rigidbodies
 
     [SerializeField]
+    LayerMask layerMask;
+
+    [SerializeField]
     private float cooldown = 3f; // Cooldown between enemy shots
     private float timer; // Time left until enemy tank fires
 
@@ -29,6 +32,8 @@ public class EnemyShooting : MonoBehaviour {
     }
 
     private void Start() {
+        layerMask = LayerMask.GetMask("Player", "Default"); 
+        //layer mask. raycast only hits players and walls (which are in default layer)
         UpdateAimVector();
     }
 
@@ -36,6 +41,7 @@ public class EnemyShooting : MonoBehaviour {
     private void Update() {
         UpdateAimVector();
         ShouldShoot();
+        Debug.Log(HasClearLineOfSight());
     }
     private void FixedUpdate() {
         Aim();
@@ -47,6 +53,16 @@ public class EnemyShooting : MonoBehaviour {
             Shoot();
             timer = cooldown;
         }
+    }
+
+    private bool HasClearLineOfSight() { 
+        //returns true if there is a direct line of sight from the enemy tank (tower) to the player tank (hull), false otherwise
+        RaycastHit2D hit = Physics2D.Raycast(enemyPos, aimVector, 1000f, layerMask); 
+        Debug.Log(hit.collider.gameObject.tag);
+        if (hit.collider != null && hit.collider.gameObject.tag == "PlayerHull") {
+            return true;
+        }
+        return false;
     }
 
     private void UpdateAimVector() { //updates the aiming vector for Aim()
