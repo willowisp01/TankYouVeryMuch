@@ -4,37 +4,42 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour {
 
+    //Fields for advanced aiming
     [SerializeField]
     bool debug = false;
-    private List<Vector3> points = new List<Vector3>();
 
     [SerializeField]
-    private float bulletForce = 40f;
+    LineRenderer lineRenderer;
+    private Radar radar;
+    private List<Vector3> points = new List<Vector3>();
     private int maxReflects = 3; //max reflects for advanced aiming
+
+    //Layer Mask
+    private LayerMask layerMask; //mask to ignore enemies
+
+    //Fields for shooting bullets
+    [SerializeField]
+    private float bulletForce = 40f;
 
     [SerializeField]
     private GameObject bulletPrefab; //dragged and dropped
-    private GameObject playerHull; //playerHull is the player tank hull, not this (enemy) tank hull!
-    private Rigidbody2D enemyTankTowerRigidbody; //this (enemy) tank tower's rigidbody
 
+    //Audio Fields
     [SerializeField]
     private AudioSource fireSound;
-    private Radar radar;
-    private Transform firePoint; //this (enemy) tank's firepoint
 
-    [SerializeField]
-    private Vector2 enemyPos, playerTankPos, aimVector, aimVectorAdvanced; //position of the tank towers' rigidbodies
 
-    [SerializeField]
-    LayerMask layerMask; //mask to ignore enemies
-
+    //Timer Fields
     [SerializeField]
     private float cooldown = 3f; // Cooldown between enemy shots
     private float timer; // Time left until enemy tank fires
 
-    [SerializeField]
-    LineRenderer lineRenderer;
-
+    //Others
+    private GameObject playerHull; //playerHull is the player tank hull, not this (enemy) tank hull!
+    private Rigidbody2D enemyTankTowerRigidbody; //this (enemy) tank tower's rigidbody 
+    private Transform firePoint; //this (enemy) tank's firepoint
+    private Vector2 enemyPos, playerTankPos, aimVector, aimVectorAdvanced; //position of the tank towers' rigidbodies
+    
     private void Awake() {
         firePoint = gameObject.transform.Find("Tower/ProjectileSource"); 
         playerHull = GameObject.FindWithTag("PlayerHull");
@@ -59,7 +64,6 @@ public class EnemyShooting : MonoBehaviour {
         Aim();
         AdvancedAim();
         ShootLogic();
-        //DrawLine();  //uncomment to draw the reflection line (debugging function)
     }
 
     private void ShootLogic() { //this goes in fixedupdate because of raycast calculations
@@ -83,11 +87,12 @@ public class EnemyShooting : MonoBehaviour {
     }
 
     private void UpdateAimVectors() { //updates the aiming vector for Aim()
+        //for Aim()
         enemyPos = enemyTankTowerRigidbody.position;
         playerTankPos = playerHull.transform.position;
         aimVector = (playerTankPos - enemyPos).normalized;
-        // Debug.DrawRay(enemyPos, aimVector, Color.cyan, 0.01f);
 
+        //for AdvancedAim()
         aimVectorAdvanced = radar.GetDirection();
     }
 
@@ -97,8 +102,9 @@ public class EnemyShooting : MonoBehaviour {
     }
 
     private void AdvancedAim() { //aims in a way that a reflected bullet can hit player
-        Reflect(enemyPos, aimVectorAdvanced, 50f, 0); //enemy can detect path to a player from 50f away
-        if (debug) {
+        bool playerFound = Reflect(enemyPos, aimVectorAdvanced, 50f, 0); //enemy can detect path to a player from 50f away
+        Debug.Log(playerFound);
+        if (debug) { //optional
             DrawLine();
         }
     }
@@ -110,10 +116,10 @@ public class EnemyShooting : MonoBehaviour {
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 
-    private void Reflect(Vector2 position, Vector2 inputDir, float distRemaining, int reflectCount) { 
+    private bool Reflect(Vector2 position, Vector2 inputDir, float distRemaining, int reflectCount) { 
         RaycastHit2D hit = Physics2D.Raycast(position, inputDir, distRemaining, layerMask);
         Vector2 newInputDir = Vector2.Reflect(inputDir, hit.normal);
-        Vector2 newPosition = hit.point + newInputDir.normalized * 0.01f; 
+        Vector2 newPosition = hit.point + newInputDir.normalized * 0.01f; //prevent infinite reflections (can occur when muzzle inserted into the wall)
         float distTraversed = hit.distance;
         float newDistRemaining = distRemaining - distTraversed;
 
@@ -126,15 +132,16 @@ public class EnemyShooting : MonoBehaviour {
             if (distRemaining > 0) {
                 points.Add(hit.point);
                 if (hit.collider.gameObject.tag == "Wall" && reflectCount <= maxReflects) {
-                    //prevent infinite reflections (can occur when muzzle inserted into the wall)
-                    Reflect(newPosition, newInputDir, newDistRemaining, reflectCount);
+                    return Reflect(newPosition, newInputDir, newDistRemaining, reflectCount);
                 } else if (hit.collider.gameObject.tag == "PlayerHull") {
                     Debug.Log("player found");
+                    return true;
                 }
             } 
         } else { //we hit nothing (because there was nothing within range)
             points.Add(position + inputDir.normalized * distRemaining);    
         }
+        return false;
     }
 
     private void DrawLine() { //for debugging purposes
