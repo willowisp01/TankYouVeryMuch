@@ -13,6 +13,8 @@ public class EnemyShooting : MonoBehaviour {
     [SerializeField]
     LineRenderer lineRenderer;
     private Radar radar;
+
+    [SerializeField]
     private List<Vector3> points = new List<Vector3>();
     private int maxReflects = 3; //max reflects for advanced aiming
 
@@ -114,14 +116,16 @@ public class EnemyShooting : MonoBehaviour {
         to aimVectorAdvanced, and foundAdvancedPath to be true.
         */
         bool playerFound = Reflect(enemyPos, aimVectorAdvanced, 50f, 0); //enemy can detect path to a player from 50f away
-        if (debug) { //optional
-            DrawLine();
-        }
         float angle = Vector2.SignedAngle(Vector2.up, radar.GetDirection());
-        if (playerFound) { 
+        if (playerFound) { //then don't add additional points
+            if (debug) { //optional
+                DrawLine();
+            }
             latestAdvancedPathAngle = angle;
             foundAdvancedPath = true;
         }
+        points.Clear(); 
+        //this clears the points in List<Vector3> points, but not the point array the linerender actually uses. 
     }
 
     private void ShootBullet() { // Shoots a bullet with bulletForce
@@ -132,6 +136,7 @@ public class EnemyShooting : MonoBehaviour {
     }
 
     private bool Reflect(Vector2 position, Vector2 inputDir, float distRemaining, int reflectCount) { 
+        //updates List<Vector3> points whenever called. 
         RaycastHit2D hit = Physics2D.Raycast(position, inputDir, distRemaining, layerMask);
         Vector2 newInputDir = Vector2.Reflect(inputDir, hit.normal);
         Vector2 newPosition = hit.point + newInputDir.normalized * 0.01f; //prevent infinite reflections (can occur when muzzle inserted into the wall)
@@ -159,8 +164,10 @@ public class EnemyShooting : MonoBehaviour {
         return false;
     }
 
-    private void DrawLine() { //for debugging purposes
+    private void DrawLine() { 
+        //for debugging purposes. creates a point array from List<Vector3> points used by linerenderer.
         lineRenderer.positionCount = points.Count;
+        Debug.Log(points.ToArray().Length);
         lineRenderer.SetPositions(points.ToArray());
         points.Clear();
     }
