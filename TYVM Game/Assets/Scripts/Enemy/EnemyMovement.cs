@@ -17,9 +17,14 @@ public class EnemyMovement : MonoBehaviour {
         Couple();
     }
 
-    private void Couple() { //keeps enemy tanktower adhered to enemy tankhull.. pretty cheese solution tbh
+    // Keeps the tower and radar adhered to the hull
+    private void Couple() { 
         enemyTankTowerRigidbody.position = enemyTankHullRigidbody.position; 
         radar.transform.position = enemyTankHullRigidbody.position;
         //https://gamedevbeginner.com/make-an-object-follow-the-mouse-in-unity-in-2d/    
-    } 
+    }
+
+    private void Movement() {
+
+    }
 }
