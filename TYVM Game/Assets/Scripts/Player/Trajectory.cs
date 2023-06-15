@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Trajectory : MonoBehaviour
 {
-    int maxReflects = 3; //number of possible reflections
-    float range = 12f; //range of trajectory line
+    int maxReflects = 3; // Number of possible reflections
+    float range = 12f; // Range of trajectory line
 
     [SerializeField]
     private Vector2 lookDir;
+
     [SerializeField]
     private Vector3 startPosition;
     private List<Vector3> points = new List<Vector3>();
@@ -23,14 +24,12 @@ public class Trajectory : MonoBehaviour
         lineRenderer = GetComponentInParent<LineRenderer>();
     }
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         UpdatePosition();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         UpdatePosition();
     }
 
@@ -49,23 +48,23 @@ public class Trajectory : MonoBehaviour
         Vector2 newPosition = hit.point + newInputDir.normalized * 0.01f; 
         float distTraversed = hit.distance;
         float newDistRemaining = distRemaining - distTraversed;
-
-        if (reflectCount <= 0) { //if no reflects yet, add starting position (occurs only once)
+        // If no reflects yet, add starting position (occurs only once)
+        if (reflectCount <= 0) { 
             points.Add(position);
         }
-
-        if (hit.collider != null) { //we hit something
+        // If we hit something
+        if (hit.collider != null) { 
             reflectCount++;
             if (distRemaining > 0) {
                 points.Add(hit.point);
-                if (hit.collider.gameObject.tag == "Wall" && reflectCount <= maxReflects) {
-                    //prevent infinite reflections (can occur when muzzle inserted into the wall)
+                if (hit.collider.gameObject.CompareTag("Wall") && reflectCount <= maxReflects) {
+                    // Prevents infinite reflections (can occur when muzzle inserted into the wall)
                     Reflect(newPosition, newInputDir, newDistRemaining, reflectCount);
-                } else if (hit.collider.gameObject.tag == "Enemy") {
-                    //Debug.Log("locked on enemy");
+                } else if (hit.collider.gameObject.CompareTag("Enemy")) {
+                    // Debug.Log("locked on enemy");
                 }
             } 
-        } else { //we hit nothing (because there was nothing within range)
+        } else { // We hit nothing (because there was nothing within range)
             points.Add(position + inputDir.normalized * distRemaining);    
         }
 
