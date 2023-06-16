@@ -68,6 +68,6 @@ public class GameLogic : MonoBehaviour {
 
     public string StageSummary() {
         return "Enemies defeated: " + (totalEnemies - enemiesRemaining) + " of " + totalEnemies + "\n" +
-            "Time elapsed (seconds): " + System.Math.Round(Time.time, 2);
+            "Time elapsed (seconds): " + System.Math.Round(Time.timeSinceLevelLoad, 2);
     }
 }

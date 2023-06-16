@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58b918f439aa694598970e024d689ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 90
   lookDir: {x: 0, y: 0}
 --- !u!1 &2774724694746057164
 GameObject:
@@ -199,8 +200,8 @@ GameObject:
   - component: {fileID: 3755867431301601638}
   - component: {fileID: 6781299822132705538}
   - component: {fileID: 4923588079105260035}
-  - component: {fileID: 4923588079105260034}
   - component: {fileID: 4923588079105260037}
+  - component: {fileID: 4923588079105260034}
   - component: {fileID: 962219773}
   m_Layer: 8
   m_Name: EnemyTankA
@@ -363,18 +364,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3412875855320464894, guid: ea67b437eceeb65499e793b852050b72, type: 3}
   fireSound: {fileID: 6781299822132705538}
   cooldown: 3
---- !u!114 &4923588079105260034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3755867431301601636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29577043c20ad354fb376b9ff1a19fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4923588079105260037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +377,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!114 &4923588079105260034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755867431301601636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29577043c20ad354fb376b9ff1a19fb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!120 &962219773
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -776,6 +777,10 @@ GameObject:
   - component: {fileID: 532196875724359204}
   - component: {fileID: 4923588079708156731}
   - component: {fileID: 4923588079105260059}
+  - component: {fileID: 4088282639978904051}
+  - component: {fileID: 95117046746600051}
+  - component: {fileID: 7324363578168261312}
+  - component: {fileID: 8846666006064989263}
   m_Layer: 8
   m_Name: Hull
   m_TagString: EnemyHull
@@ -901,6 +906,106 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4088282639978904051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755867432374661740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &95117046746600051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755867432374661740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183748dd497aa473a98ff0cd8cb67fc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 9191220264957926470
+  updateError: 1
+  checkTime: 0.2
+--- !u!114 &7324363578168261312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755867432374661740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+  radius: 0.5
+  height: 2
+  canMove: 1
+  maxSpeed: 7
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  repathRateCompatibility: NaN
+  canSearchCompability: 0
+  orientation: 1
+  enableRotation: 1
+  autoRepath:
+    mode: 2
+    interval: 0.5
+    sensitivity: 10
+    maximumInterval: 2
+    visualizeSensitivity: 0
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 360
+  slowdownDistance: 0.6
+  pickNextWaypointDist: 2
+  endReachedDistance: 10
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
+--- !u!114 &8846666006064989263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3755867432374661740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
 --- !u!1 &3755867432379757913
 GameObject:
   m_ObjectHideFlags: 0
