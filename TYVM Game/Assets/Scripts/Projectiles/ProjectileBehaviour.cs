@@ -13,9 +13,11 @@ public class ProjectileBehaviour : MonoBehaviour {
     private float bulletDuration = 3f;
     private Rigidbody2D rb;
     private Vector2 oldVelocity;
+    private AudioSource fireSound;
 
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        fireSound = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -35,7 +37,14 @@ public class ProjectileBehaviour : MonoBehaviour {
 
     // Method to destroy the projectile
     private void DestroyProjectile() {
-        Destroy(gameObject);
+        // We disable the sprite renderer and physics so it is as if the projectile is no longer there
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Rigidbody2D>().simulated = false;
+        GetComponent<CircleCollider2D>().enabled = false;
+        // When the audio clip is done playing, we destroy the projectile
+        if (!GetComponent<AudioSource>().isPlaying) {
+            Destroy(gameObject);
+        }
     }
 
     // Behaviour for the projectile upon collision with different game objects
