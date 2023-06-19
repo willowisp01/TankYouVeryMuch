@@ -979,6 +979,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5549373910267149391, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c73ffaa467970747b9cd02ef0d5bc55, type: 2}
+    - target: {fileID: 5549373910267149391, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
+      propertyPath: activationKey
+      value: 113
+      objectReference: {fileID: 0}
     - target: {fileID: 8091733512695735154, guid: 2da97cc710e890c4b8b28acd97393fc8, type: 3}
       propertyPath: m_RootOrder
       value: 3
