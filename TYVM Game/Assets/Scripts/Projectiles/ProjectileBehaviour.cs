@@ -36,7 +36,7 @@ public class ProjectileBehaviour : MonoBehaviour {
     }
 
     // Method to destroy the projectile
-    private void DestroyProjectile() {
+    public void DestroyProjectile() {
         // We disable the sprite renderer and physics so it is as if the projectile is no longer there
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;

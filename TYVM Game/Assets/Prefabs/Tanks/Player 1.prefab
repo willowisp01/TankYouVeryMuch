@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 7063391219098205968}
   - component: {fileID: 1743214510}
   - component: {fileID: 723895429}
+  - component: {fileID: 5549373910267149391}
   - component: {fileID: 1113428693}
   m_Layer: 6
   m_Name: Player 1
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletForce: 40
   bulletPrefab: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
-  fireSoundPrefab: {fileID: 8774720749027517169, guid: 3914386171e4cc340bc7f7df4e2d4e3b, type: 3}
+  cooldown: 1
   firePoint: {fileID: 0}
 --- !u!114 &723895429
 MonoBehaviour:
@@ -207,6 +208,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!114 &5549373910267149391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091733512695735155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e91681a7c3621b24f82f31dd6a655aea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activationKey: 113
 --- !u!120 &1113428693
 LineRenderer:
   m_ObjectHideFlags: 0
