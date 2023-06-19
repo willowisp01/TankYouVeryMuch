@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -48,6 +49,7 @@ public class GameLogic : MonoBehaviour {
         foreach (GameObject e in enemies) {
             e.GetComponent<EnemyMovement>().enabled = false;
             e.GetComponent<EnemyShooting>().enabled = false;
+            e.GetComponentInChildren<AIPath>().enabled = false;
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class EnemyShooting : MonoBehaviour {
 
@@ -24,10 +25,6 @@ public class EnemyShooting : MonoBehaviour {
 
     [SerializeField]
     private GameObject bulletPrefab; // Dragged and dropped
-
-    // Audio Fields
-    [SerializeField]
-    private AudioSource fireSound;
 
     // Timer Fields
     [SerializeField]
@@ -125,9 +122,9 @@ public class EnemyShooting : MonoBehaviour {
         points.Clear(); // This clears the points in List<Vector3> points, but not the point array the lineRender actually uses. 
     }
 
-    private void ShootBullet() { // Shoots a bullet with bulletForce
+    // Shoots a bullet with bulletForce
+    private void ShootBullet() { 
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        fireSound.Play();
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }

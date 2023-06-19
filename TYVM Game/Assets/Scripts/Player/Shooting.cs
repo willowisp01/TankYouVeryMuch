@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Shooting : MonoBehaviour {
 
@@ -11,19 +12,22 @@ public class Shooting : MonoBehaviour {
     private GameObject bulletPrefab;
 
     [SerializeField]
-    private AudioSource fireSound;
+    private float cooldown = 1f;
+    private float timer;
 
     public Transform firePoint;
 
     private void Awake() {
         firePoint = gameObject.transform.Find("Tower/ProjectileSource");
+        timer = cooldown;
     }
 
     // Update is called once per frame
     private void Update() {
-        if (Input.GetButtonDown("Fire1")) { // Left click
-            fireSound.Play();
+        timer -= Time.deltaTime;
+        if (Input.GetButtonDown("Fire1") && timer <= 0) { // Left click
             Shoot();
+            timer = cooldown;
         }
     }
 
