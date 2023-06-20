@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 
     [SerializeField]
-    private int health = 3;
+    private float health = 3f;
     private GameLogic gameLogic;
 
     private void Awake() {
@@ -16,7 +16,7 @@ public class Health : MonoBehaviour {
 
     }
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
             DestroySelf();

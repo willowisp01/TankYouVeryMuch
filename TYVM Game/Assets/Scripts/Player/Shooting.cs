@@ -1,24 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class Shooting : MonoBehaviour {
 
     [SerializeField]
-    private float bulletForce = 40f;
+    private GameObject projectilePrefab;
+    private ProjectileData projectileData;
 
-    [SerializeField]
-    private GameObject bulletPrefab;
-
-    [SerializeField]
-    private float cooldown = 1f;
+    private float launchForce;
+    private float cooldown;
     private float timer;
 
-    public Transform firePoint;
+    private Transform firePoint;
 
     private void Awake() {
-        firePoint = gameObject.transform.Find("Tower/ProjectileSource");
+        firePoint = transform.Find("Tower/ProjectileSource");
+        projectileData = projectilePrefab.GetComponent<ProjectileBehaviour>().projectileData;
+        launchForce = projectileData.launchForce;
+        cooldown = projectileData.cooldown;
         timer = cooldown;
     }
 
@@ -33,9 +34,9 @@ public class Shooting : MonoBehaviour {
 
     // Shoots a bullet with bulletForce
     private void Shoot() {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * launchForce, ForceMode2D.Impulse);
     }
 
     public Transform GetFirePoint() {

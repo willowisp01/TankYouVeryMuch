@@ -1,9 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 
 public class EnemyShooting : MonoBehaviour {
+
+    [SerializeField]
+    private GameObject projectilePrefab;
+    private ProjectileData projectileData;
+
+    private float launchForce;
+    private float cooldown;
+    private float timer;
+
+    [SerializeField]
+    LineRenderer lineRenderer;
+    private Radar radar;
+
+    // Layer Mask
+    private LayerMask layerMask; // Mask to ignore enemies
 
     // Fields for advanced aiming
     [SerializeField]
@@ -12,40 +26,24 @@ public class EnemyShooting : MonoBehaviour {
     private float latestAdvancedPathAngle;
 
     [SerializeField]
-    LineRenderer lineRenderer;
-    private Radar radar;
-
-    [SerializeField]
     private List<Vector3> points = new List<Vector3>();
     private int maxReflects = 3; // Max reflects for advanced aiming
 
-    // Fields for shooting bullets
-    [SerializeField]
-    private float bulletForce = 40f;
-
-    [SerializeField]
-    private GameObject bulletPrefab; // Dragged and dropped
-
-    // Timer Fields
-    [SerializeField]
-    private float cooldown = 3f; // Cooldown between enemy shots
-    private float timer; // Time left until enemy tank fires
-
-    //Layer Mask
-    private LayerMask layerMask; // Mask to ignore enemies
-
-    //Others
+    // Others
     private GameObject playerHull; // playerHull is the player tank hull, not this (enemy) tank hull!
     private Rigidbody2D enemyTankTowerRigidbody; // This (enemy) tank tower's rigidbody 
     private Transform firePoint; // This (enemy) tank's firepoint
     private Vector2 enemyPos, playerTankPos, aimVector, aimVectorAdvanced; // Position of the tank towers' rigidbodies
     
     private void Awake() {
-        firePoint = gameObject.transform.Find("Tower/ProjectileSource"); 
-        playerHull = GameObject.FindWithTag("PlayerHull");
-        enemyTankTowerRigidbody = gameObject.transform.GetChild(1).GetComponent<Rigidbody2D>();
-        radar = GetComponentInChildren<Radar>();
+        projectileData = projectilePrefab.GetComponent<ProjectileBehaviour>().projectileData;
+        launchForce = projectileData.launchForce;
+        cooldown = projectileData.cooldown;
         timer = cooldown;
+        radar = GetComponentInChildren<Radar>();
+        firePoint = transform.Find("Tower/ProjectileSource"); 
+        playerHull = GameObject.FindWithTag("PlayerHull");
+        enemyTankTowerRigidbody = transform.GetChild(1).GetComponent<Rigidbody2D>();
     }
 
     private void Start() {
@@ -65,9 +63,10 @@ public class EnemyShooting : MonoBehaviour {
             AdjustAim();
         } else if (timer <= 0) {
             timer = cooldown;
-            ShootBullet();
+            Shoot();
             foundAdvancedPath = false;
         }
+        TowerRotation();
     }
 
     // Selection logic
@@ -96,19 +95,18 @@ public class EnemyShooting : MonoBehaviour {
 
     // Updates the aiming vector for Aim()
     private void UpdateAimVectors() { 
-        //for HasClearLineOfSight()
+        // For HasClearLineOfSight()
         enemyPos = enemyTankTowerRigidbody.position;
         playerTankPos = playerHull.transform.position;
         aimVector = (playerTankPos - enemyPos).normalized;
 
-        //for AdvancedAim()
+        // For AdvancedAim()
         aimVectorAdvanced = radar.GetDirection();
     }
 
-    /*
-    If possible to hit player indirectly from aimVectorAdvanced (provided by radar), sets latestAdvancedPathAngle
-    to aimVectorAdvanced, and foundAdvancedPath to be true.
-    */
+    /* If possible to hit player indirectly from aimVectorAdvanced (provided by radar), sets latestAdvancedPathAngle
+     * to aimVectorAdvanced, and foundAdvancedPath to be true.
+     */
     private void UpdateAdvancedAngle() { 
         bool playerFound = Reflect(enemyPos, aimVectorAdvanced, 50f, 0); // Enemy can detect path to a player from 50f away
         float angle = Vector2.SignedAngle(Vector2.up, radar.GetDirection());
@@ -119,14 +117,14 @@ public class EnemyShooting : MonoBehaviour {
             latestAdvancedPathAngle = angle;
             foundAdvancedPath = true;
         }
-        points.Clear(); // This clears the points in List<Vector3> points, but not the point array the lineRender actually uses. 
+        points.Clear(); // This clears the points in List<Vector3> points, but not the point array the lineRenderer actually uses. 
     }
 
-    // Shoots a bullet with bulletForce
-    private void ShootBullet() { 
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+    // Shoots a projectile with projectileForce
+    private void Shoot() { 
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+        rb.AddForce(firePoint.up * launchForce, ForceMode2D.Impulse);
     }
 
     // Updates List<Vector3> points whenever called. 
@@ -157,6 +155,16 @@ public class EnemyShooting : MonoBehaviour {
             points.Add(position + inputDir.normalized * distRemaining);    
         }
         return false;
+    }
+
+    private void TowerRotation() {
+        if (foundAdvancedPath) {
+            enemyTankTowerRigidbody.rotation = latestAdvancedPathAngle;
+        } else {
+            Vector2 lookDir = playerTankPos - enemyPos; // Vector subtraction
+            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90; // Arctangent; we minus 90 because of the 4 quadrants trigonometry
+            enemyTankTowerRigidbody.rotation = angle;
+        }
     }
 
     // For debugging purposes. Creates a point array from List<Vector3> points used by lineRenderer.
