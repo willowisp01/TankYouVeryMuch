@@ -1,51 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &479793440
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 479793441}
-  - component: {fileID: 479793442}
-  m_Layer: 6
-  m_Name: Trajectory
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &479793441
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479793440}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8091733512695735154}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &479793442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 479793440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a52f7de521f759447845aabeaf775033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookDir: {x: 0, y: 0}
-  startPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1264259613972760813
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,13 +68,15 @@ GameObject:
   m_Component:
   - component: {fileID: 8091733512695735154}
   - component: {fileID: 8091733512695735153}
-  - component: {fileID: 7063391219098205968}
-  - component: {fileID: 1743214510}
-  - component: {fileID: 723895429}
+  - component: {fileID: 8295406131927581983}
+  - component: {fileID: 7775956354862249941}
+  - component: {fileID: 8502092625996240217}
+  - component: {fileID: 2039933225706113125}
   - component: {fileID: 5549373910267149391}
+  - component: {fileID: 4285294259222718727}
   - component: {fileID: 1113428693}
   m_Layer: 6
-  m_Name: Player 1
+  m_Name: PlayerTank
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +96,6 @@ Transform:
   m_Children:
   - {fileID: 8091733513768585338}
   - {fileID: 8091733512917833281}
-  - {fileID: 479793441}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -165,7 +120,48 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7063391219098205968
+--- !u!114 &8295406131927581983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091733512695735155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51604f657a0c9ac4e97f679e046d201b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7775956354862249941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091733512695735155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d67aa633f4b1a409fd18d2290ec01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appearanceChoice: {fileID: 11400000, guid: 9bfb2018de6362d42991e40f19edd524, type: 2}
+--- !u!114 &8502092625996240217
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 10000
---- !u!114 &1743214510
+--- !u!114 &2039933225706113125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,23 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c8bcb66ac874b2498fa701f96449e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletForce: 40
-  bulletPrefab: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
-  cooldown: 1
-  firePoint: {fileID: 0}
---- !u!114 &723895429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8091733512695735155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51604f657a0c9ac4e97f679e046d201b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
+  projectilePrefab: {fileID: 0}
 --- !u!114 &5549373910267149391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +200,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91681a7c3621b24f82f31dd6a655aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: 4c73ffaa467970747b9cd02ef0d5bc55, type: 2}
   activationKey: 113
+--- !u!114 &4285294259222718727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091733512695735155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52f7de521f759447845aabeaf775033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookDir: {x: 0, y: 0}
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!120 &1113428693
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -555,7 +550,7 @@ GameObject:
   - component: {fileID: 8091733513349714104}
   - component: {fileID: 8091733513349714111}
   m_Layer: 6
-  m_Name: Track
+  m_Name: RightTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -944,7 +939,7 @@ GameObject:
   - component: {fileID: 8091733514398714822}
   - component: {fileID: 8091733514398714821}
   m_Layer: 6
-  m_Name: Track
+  m_Name: LeftTrack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,22 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour {
 
     [SerializeField]
-    private int health = 3;
-    private GameLogic gameLogic;
+    private float health = 3f;
 
-    private void Awake() {
-        gameLogic = GameObject.Find("GameManager").GetComponent<GameLogic>();
-    }
+    [SerializeField]
+    private UnityEvent<GameObject> onDeath;
 
-    private void Update() {
-
-    }
-
-    public void TakeDamage(int damage) {
+    public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
             DestroySelf();
@@ -25,7 +20,7 @@ public class Health : MonoBehaviour {
 
     private void DestroySelf() {
         gameObject.SetActive(false);
-        gameLogic.TriggerDefeat();
+        onDeath.Invoke(gameObject);
         // TODO: put some explosion effect or something
     }
 }

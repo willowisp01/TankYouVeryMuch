@@ -41,13 +41,13 @@ public class SkillSelect : MonoBehaviour {
                 break;
             // If the skill is active, it goes into cooldown when activeTime is up
             case SkillState.isActive:
-                if (uses == 0) {
-                    state = SkillState.noMoreUses;
-                }
                 activeTime -= Time.deltaTime;
                 if (activeTime <= 0) {
                     state = SkillState.onCooldown; // The skill is now on cooldown
                     cooldown = skill.cooldown;
+                }
+                if (uses == 0) {
+                    state = SkillState.noMoreUses;
                 }
                 break;
             // The skill is ready to use again once the cooldown is over
@@ -56,6 +56,8 @@ public class SkillSelect : MonoBehaviour {
                 if (cooldown <= 0) {
                     state = SkillState.canUse; // The skill can be used again
                 }
+                break;
+            case SkillState.noMoreUses:
                 break;
         }
     }

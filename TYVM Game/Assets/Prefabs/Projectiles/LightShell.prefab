@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6805903380955117293}
   - component: {fileID: 7984467707572815609}
   - component: {fileID: 8031253167838971128}
-  - component: {fileID: 657544484325066933}
+  - component: {fileID: 4627660683048567165}
   - component: {fileID: -1697211081553660643}
   m_Layer: 7
   m_Name: LightShell
@@ -125,7 +125,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.2}
   serializedVersion: 2
   m_Radius: 0.03
---- !u!114 &657544484325066933
+--- !u!114 &4627660683048567165
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,11 +134,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3412875855320464894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 811c1d47da59b5340a420031e5567d5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 62e1aa535756051459016be8229dc63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  durability: 10
+  projectileData: {fileID: 11400000, guid: 3d38461aab511414e856b9023008d9cf, type: 2}
 --- !u!82 &-1697211081553660643
 AudioSource:
   m_ObjectHideFlags: 0

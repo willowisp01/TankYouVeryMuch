@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D tankHull, tankTower;
 
     private void Awake() {
-        tankHull = gameObject.transform.Find("Hull").GetComponent<Rigidbody2D>();
-        tankTower = gameObject.transform.Find("Tower").GetComponent<Rigidbody2D>();
+        tankHull = transform.Find("Hull").GetComponent<Rigidbody2D>();
+        tankTower = transform.Find("Tower").GetComponent<Rigidbody2D>();
         cam = FindObjectOfType<Camera>(); // Looks for the camera
     }
 

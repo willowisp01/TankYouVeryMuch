@@ -134,11 +134,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3412875855320464894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 811c1d47da59b5340a420031e5567d5f, type: 3}
+  m_Script: {fileID: 11500000, guid: 62e1aa535756051459016be8229dc63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  durability: 10
+  projectileData: {fileID: 11400000, guid: cf5634bf69c2c6c428ceb759312bfd5f, type: 2}
 --- !u!82 &-4220995087266125895
 AudioSource:
   m_ObjectHideFlags: 0

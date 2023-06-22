@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trajectory : MonoBehaviour
-{
-    int maxReflects = 3; // Number of possible reflections
+public class Trajectory : MonoBehaviour {
+    float maxReflects = 3f; // Number of possible reflections
     float range = 12f; // Range of trajectory line
 
     [SerializeField]
@@ -13,16 +12,15 @@ public class Trajectory : MonoBehaviour
     [SerializeField]
     private Vector3 startPosition;
     private List<Vector3> points = new List<Vector3>();
-    private Shooting shooting;
 
     private PlayerMovement playerMovement;
     private LineRenderer lineRenderer;
 
     private void Awake() {
-        playerMovement = GetComponentInParent<PlayerMovement>();
-        shooting = GetComponentInParent<Shooting>();
-        lineRenderer = GetComponentInParent<LineRenderer>();
+        playerMovement = GetComponent<PlayerMovement>();
+        lineRenderer = GetComponent<LineRenderer>();
     }
+
     // Start is called before the first frame update
     void Start() {
         UpdatePosition();
@@ -37,8 +35,8 @@ public class Trajectory : MonoBehaviour
         DrawLine();
     }
 
-    void UpdatePosition() {
-        startPosition = shooting.GetFirePoint().position;
+    private void UpdatePosition() {
+        startPosition = transform.Find("Tower/ProjectileSource").position;
         lookDir = playerMovement.GetLookDir();
     }
 
@@ -67,7 +65,6 @@ public class Trajectory : MonoBehaviour
         } else { // We hit nothing (because there was nothing within range)
             points.Add(position + inputDir.normalized * distRemaining);    
         }
-
     }
 
     private void DrawLine() {
