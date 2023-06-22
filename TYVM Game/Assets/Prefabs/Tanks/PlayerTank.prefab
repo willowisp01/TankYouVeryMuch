@@ -68,8 +68,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8091733512695735154}
   - component: {fileID: 8091733512695735153}
-  - component: {fileID: 8502092625996240217}
+  - component: {fileID: 8295406131927581983}
   - component: {fileID: 7775956354862249941}
+  - component: {fileID: 8502092625996240217}
   - component: {fileID: 2039933225706113125}
   - component: {fileID: 5549373910267149391}
   - component: {fileID: 4285294259222718727}
@@ -119,6 +120,47 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8295406131927581983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091733512695735155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51604f657a0c9ac4e97f679e046d201b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7775956354862249941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091733512695735155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d67aa633f4b1a409fd18d2290ec01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appearanceChoice: {fileID: 11400000, guid: 9bfb2018de6362d42991e40f19edd524, type: 2}
 --- !u!114 &8502092625996240217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,19 +175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   rotationSpeed: 10000
---- !u!114 &7775956354862249941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8091733512695735155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57d67aa633f4b1a409fd18d2290ec01e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  appearanceChoice: {fileID: 11400000, guid: 9bfb2018de6362d42991e40f19edd524, type: 2}
 --- !u!114 &2039933225706113125
 MonoBehaviour:
   m_ObjectHideFlags: 0

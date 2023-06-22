@@ -6,9 +6,6 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour {
 
     [SerializeField]
-    private GameObject endScreen;
-
-    [SerializeField]
     private ScreenPrinter screenPrinter;
 
     private int totalEnemies;
@@ -21,18 +18,16 @@ public class GameLogic : MonoBehaviour {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         totalEnemies = enemies.Length;
         enemiesRemaining = totalEnemies;
-        //Debug.Log("Total Enemies: " + totalEnemies);
     }
 
-    // Update is called once per frame
-    void Update() {
-
-    }
-
-    public void EnemyDefeated(GameObject enemy) {
-        enemiesRemaining--;
-        if (enemiesRemaining <= 0) {
-            TriggerVictory();
+    public void TankDefeated(GameObject tank) {
+        if (tank.CompareTag("Player")) {
+            TriggerDefeat();
+        } else {
+            enemiesRemaining--;
+            if (enemiesRemaining <= 0) {
+                TriggerVictory();
+            }
         }
     }
 
@@ -56,14 +51,12 @@ public class GameLogic : MonoBehaviour {
         // TODO: add stageNumber to a list of cleared stages. 
         // Feel free to add achievements, coins etc. to this method later on.
         // DisablePlayer(); Commented out for now to allow us to continue testing other things after killing enemies
-        endScreen.SetActive(true);
         screenPrinter.Result("VICTORY");
     }
 
-    public void TriggerDefeat() {
+    private void TriggerDefeat() {
         DisableEnemies();
         //Debug.Log("You died!");
-        endScreen.SetActive(true);
         screenPrinter.Result("DEFEAT");
     }
 

@@ -1,20 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour {
 
     [SerializeField]
     private float health = 3f;
-    private GameLogic gameLogic;
 
-    private void Awake() {
-        gameLogic = GameObject.Find("GameManager").GetComponent<GameLogic>();
-    }
-
-    private void Update() {
-
-    }
+    [SerializeField]
+    private UnityEvent<GameObject> onDeath;
 
     public void TakeDamage(float damage) {
         health -= damage;
@@ -25,7 +20,7 @@ public class Health : MonoBehaviour {
 
     private void DestroySelf() {
         gameObject.SetActive(false);
-        gameLogic.TriggerDefeat();
+        onDeath.Invoke(gameObject);
         // TODO: put some explosion effect or something
     }
 }

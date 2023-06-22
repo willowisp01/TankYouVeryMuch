@@ -33,6 +33,7 @@ public class ScreenPrinter : MonoBehaviour {
     }
 
     public void Result(string res) {
+        gameObject.SetActive(true);
         result.text = res;
         summary.text = gameLogic.StageSummary();
         switch (res) {
