@@ -32,18 +32,32 @@ public class GameLogic : MonoBehaviour {
     }
 
     // Disable player controls after victory
-    private void DisablePlayer() {
+    public void DisablePlayer() {
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<Shooting>().enabled = false;
     }
 
+    public void EnablePlayer() {
+        player.GetComponent<PlayerMovement>().enabled = true;
+        player.GetComponent<Shooting>().enabled = true;
+    }
+
     // Disable all remaining enemies after defeat
-    private void DisableEnemies() {
+    public void DisableEnemies() {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject e in enemies) {
             e.GetComponent<EnemyMovement>().enabled = false;
             e.GetComponent<EnemyShooting>().enabled = false;
             e.GetComponentInChildren<AIPath>().enabled = false;
+        }
+    }
+
+    public void EnableEnemies() {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject e in enemies) {
+            e.GetComponent<EnemyMovement>().enabled = true;
+            e.GetComponent<EnemyShooting>().enabled = true;
+            e.GetComponentInChildren<AIPath>().enabled = true;
         }
     }
 
@@ -56,7 +70,6 @@ public class GameLogic : MonoBehaviour {
 
     private void TriggerDefeat() {
         DisableEnemies();
-        //Debug.Log("You died!");
         screenPrinter.Result("DEFEAT");
     }
 

@@ -147,7 +147,6 @@ GameObject:
   - component: {fileID: 6295250913115502340}
   - component: {fileID: 6295250913115502339}
   - component: {fileID: 6295250913115502341}
-  - component: {fileID: -2464121227963176876}
   - component: {fileID: 6295250913115502342}
   m_Layer: 5
   m_Name: EndScreen
@@ -235,18 +234,7 @@ MonoBehaviour:
   message: {fileID: 6295250912945813725}
   summary: {fileID: 6295250913729217264}
   stage: {fileID: 6295250913276784596}
---- !u!114 &-2464121227963176876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6295250913115502337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5141ff85d7ac1a941baa0d0ea956467e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  stageButton: {fileID: 0}
 --- !u!95 &6295250913115502342
 Animator:
   serializedVersion: 5

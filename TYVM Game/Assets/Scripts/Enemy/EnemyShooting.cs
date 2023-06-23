@@ -66,7 +66,7 @@ public class EnemyShooting : MonoBehaviour {
             Shoot();
             foundAdvancedPath = false;
         }
-        TowerRotation();
+        // TowerRotation(); Commented out for now because it messes with aiming
     }
 
     // Selection logic

@@ -25,4 +25,8 @@ public class StageManager : MonoBehaviour {
     public void BackToMain() {
         SceneManager.LoadScene(0);
     }
+
+    public void Quit() {
+        Application.Quit();
+    }
 }

@@ -29,7 +29,7 @@ public class ScreenPrinter : MonoBehaviour {
     private void Awake() {
         stageNumber = SceneManager.GetActiveScene().buildIndex;
         gameLogic = GameObject.Find("GameManager").GetComponent<GameLogic>();
-        stageManager = gameObject.GetComponentInParent<StageManager>();
+        stageManager = gameLogic.GetComponent<StageManager>();
     }
 
     public void Result(string res) {
