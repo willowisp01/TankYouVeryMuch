@@ -66,13 +66,13 @@ public class EnemyShooting : MonoBehaviour {
             Shoot();
             foundAdvancedPath = false;
         }
-        TowerRotation();
     }
 
     // Selection logic
     private void AdjustAim() {
         // If there is clear line of sight, aim straight
         if (HasClearLineOfSight()) { 
+            Debug.Log("Clearly Sighted");
             float newAngle = Vector2.SignedAngle(Vector2.up, aimVector);
             enemyTankTowerRigidbody.MoveRotation(newAngle);
         // There is no clear line of sight, but UpdateAdvancedAngle found an indirect path while cooling down
@@ -155,16 +155,6 @@ public class EnemyShooting : MonoBehaviour {
             points.Add(position + inputDir.normalized * distRemaining);    
         }
         return false;
-    }
-
-    private void TowerRotation() {
-        if (foundAdvancedPath) {
-            enemyTankTowerRigidbody.rotation = latestAdvancedPathAngle;
-        } else {
-            Vector2 lookDir = playerTankPos - enemyPos; // Vector subtraction
-            float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90; // Arctangent; we minus 90 because of the 4 quadrants trigonometry
-            enemyTankTowerRigidbody.rotation = angle;
-        }
     }
 
     // For debugging purposes. Creates a point array from List<Vector3> points used by lineRenderer.
