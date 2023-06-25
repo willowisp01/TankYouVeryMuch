@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour {
         radar = transform.Find("Radar").gameObject;
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         Couple();
     }
 
