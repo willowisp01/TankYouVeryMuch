@@ -29,14 +29,14 @@ public class PauseMenu : MonoBehaviour {
 
     private void Pause() {
         OnPause.Invoke(); // We assign the Disable methods from GameLogic in the inspector to disable the player and enemies
-        Time.timeScale = 0f; // Sets timescale to 0, which stops any delta time based logic, effectively pausing the game
+        //Time.timeScale = 0f; // Sets timescale to 0, which stops any delta time based logic, effectively pausing the game
         menu.SetActive(true);
         isPaused = true;
     }
 
     public void Resume() {
         OnResume.Invoke(); // Similarly, we assign the Enable methods from GameLogic to reenable the player and enemies
-        Time.timeScale = 1f; // Resets timescale back to 1
+        //Time.timeScale = 1f; // Resets timescale back to 1
         menu.SetActive(false);
         isPaused = false;
     }

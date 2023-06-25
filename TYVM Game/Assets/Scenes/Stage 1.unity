@@ -477,6 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenPrinter: {fileID: 676400181}
+  nextStageButton: {fileID: 1937849782}
 --- !u!114 &214486619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,6 +599,10 @@ PrefabInstance:
     - target: {fileID: 3755867431301601636, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: m_Name
       value: EnemyTankA
+      objectReference: {fileID: 0}
+    - target: {fileID: 3755867431301601636, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3755867431301601637, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: m_RootOrder
@@ -782,9 +787,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -2464121227963176876, guid: 513038193a73def43b9aab91048b7ff3, type: 3}
+      - m_Target: {fileID: 214486619}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
-        m_MethodName: BackToMain
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -934,7 +939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &595198259
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2922,7 +2927,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 214486619}
         m_TargetAssemblyTypeName: StageManager, Assembly-CSharp
         m_MethodName: BackToMain
         m_Mode: 1
@@ -3026,7 +3031,7 @@ MonoBehaviour:
   OnPause:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 214486618}
         m_TargetAssemblyTypeName: GameLogic, Assembly-CSharp
         m_MethodName: DisablePlayer
         m_Mode: 1
@@ -3038,7 +3043,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 214486618}
         m_TargetAssemblyTypeName: GameLogic, Assembly-CSharp
         m_MethodName: DisableEnemies
         m_Mode: 1
@@ -3053,7 +3058,7 @@ MonoBehaviour:
   OnResume:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 214486618}
         m_TargetAssemblyTypeName: GameLogic, Assembly-CSharp
         m_MethodName: EnablePlayer
         m_Mode: 1
@@ -3065,7 +3070,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 214486618}
         m_TargetAssemblyTypeName: GameLogic, Assembly-CSharp
         m_MethodName: EnableEnemies
         m_Mode: 1
@@ -3609,6 +3614,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 138276168}
     m_Modifications:
+    - target: {fileID: 3331162260036816370, guid: 513038193a73def43b9aab91048b7ff3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 214486619}
+    - target: {fileID: 3331162260036816370, guid: 513038193a73def43b9aab91048b7ff3, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
     - target: {fileID: 6295250913115502337, guid: 513038193a73def43b9aab91048b7ff3, type: 3}
       propertyPath: m_Name
       value: EndScreen
@@ -3946,7 +3959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7775837733932533865, guid: 087d40fa8c81cb14d95dab48b42d0f13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7775837733932533865, guid: 087d40fa8c81cb14d95dab48b42d0f13, type: 3}
       propertyPath: m_LocalPosition.y

@@ -15,15 +15,15 @@ public class StageManager : MonoBehaviour {
     }
 
     public void Restart() {
-        SceneManager.LoadScene(currentStage);
+        SceneManager.LoadSceneAsync(currentStage);
     }
 
     public void Next() {
-        SceneManager.LoadScene(currentStage + 1);
+        SceneManager.LoadSceneAsync(currentStage + 1);
     }
 
     public void BackToMain() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void Quit() {
