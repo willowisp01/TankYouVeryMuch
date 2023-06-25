@@ -669,6 +669,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4923588079105260035, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4923588079105260035, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
