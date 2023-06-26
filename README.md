@@ -1,5 +1,6 @@
 ﻿# **Orbital 2023 Milestone 2**
 
+## *Note: Please press Q to use the ability! See the details under Special Abilities.  
 
 # Team Details
 
@@ -312,6 +313,8 @@ There are a number of fields which the script gets from a ProjectileData Scripta
 
 A trajectory line is provided to assist with aiming, which is helpful as some projectiles are able to reflect off walls. This is controlled by the Trajectory script, which uses raycasts and a LineRenderer to draw a line simulating the path the fired projectile will take.
 
+![TrajectoryLine](https://github.com/willowisp01/TankYouVeryMuch/assets/132592621/096b5b72-7343-4e0d-9541-78efeb9643b1)
+
 We will talk about enemy shooting logic under the Enemies section.
 
 
@@ -417,7 +420,9 @@ Enemy shooting logic is controlled by the EnemyShooting script. The logic is as 
 2. Meanwhile, a radar attached to the enemy tank sweeps the stage continuously.
 3. The radar emits a reflecting raycast (similar to our player’s own trajectory prediction feature) to search for a player.
 4. If an (indirect) path to the player is found, the appropriate angle to shoot at is cached.
-5. At t = 0.3 seconds left, the algorithm either shoots straight at the player if no obstacles block the line of fire, else it uses the cached angle. 
+5. At t = 0.3 seconds left, the algorithm either shoots straight at the player if no obstacles block the line of fire, else it uses the cached angle.
+
+![EnemyLogic](https://github.com/willowisp01/TankYouVeryMuch/assets/132592621/4edbb8c3-2753-4885-b4c4-a36081f04e19)
 
 Diagram showing enemy aiming logic
 
@@ -427,6 +432,8 @@ One area for improvement is that the tank tower instantly snaps into place to ai
 ### Enemy Pathfinding
 
 With the maze-like designs of the stages, enemy pathfinding logic is a must. With the help of the A* Pathfinding Project package, we have managed to implement a pathfinding system using grid graphs.
+
+![Pathfinding](https://github.com/willowisp01/TankYouVeryMuch/assets/132592621/efb5205e-f1c1-42f8-a52d-b9351f5daa5e)
 
 Screenshot of the grid graph
 
@@ -439,6 +446,7 @@ While we have tried to write our own AIPath script, the default one that comes w
 
 tl;dr Kill all enemies => Win Die => Lose
 
+![GameLogic](https://github.com/willowisp01/TankYouVeryMuch/assets/132592621/192c5fb5-6c10-4b9d-94ef-26ededb91466)
 
 ### Design Decisions
 
