@@ -1,6 +1,5 @@
 ﻿# **Tank You Very Much (Milestone 2)**
 
-
 # About Our Game 
 
 Tanks is a classic game in which players control a tank, and aim to destroy other tanks while avoiding damage. It is typically played against CPU tanks. However, in its original form, the novelty of the game wears off quickly. We intend to make the game diverse and engaging through the introduction of various tank abilities, dynamic terrain, and interactive map elements. Additionally, we intend to create a single-player campaign, local multiplayer and online multiplayer. Our reward system includes new tanks, cosmetics, and upgradable abilities.
@@ -41,10 +40,9 @@ Video:
 [Orbital Video Milestone 2](https://drive.google.com/file/d/1wc6PIzbOJg6Rq5YYGGVicl7PGMQtHrBL/view?usp=sharing)
 
 
-## Full Project Report (Milestone 2)
+## Full Project Documentation (Milestone 2) 
 
-[Milestone 2 Project Report](https://docs.google.com/document/d/1GqZdXqXtPcaInxrY5Vnpa2w_KI4ZNv5t50SToggiQ_E/edit#heading=h.21seba9k8p0t)
-
+[Milestone 2 Project Report](https://docs.google.com/document/d/1GqZdXqXtPcaInxrY5Vnpa2w_KI4ZNv5t50SToggiQ_E/edit#heading=h.21seba9k8p0t)   
 
 ## Project Log
 
