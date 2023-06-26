@@ -45,13 +45,16 @@ Link to repository:
 
 Poster:
 
-
+[Orbital Poster Milestone 2](https://drive.google.com/file/d/1I-O8HEkhNohGS9AhP40atUbyQ0NpzMCz/view)
 
 Video:
 
 [Orbital Video Milestone 2](https://drive.google.com/file/d/1wc6PIzbOJg6Rq5YYGGVicl7PGMQtHrBL/view?usp=sharing)
 
 
+## Project Log
+
+[Project Log](https://docs.google.com/spreadsheets/d/1quSz3zc2BvAIu-BQ3Xgk_EfCRI6jFS2fdS3GZb3G5JI/edit#gid=0)
 ## 
 
 
