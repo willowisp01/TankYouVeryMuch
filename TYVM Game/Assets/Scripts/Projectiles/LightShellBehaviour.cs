@@ -20,7 +20,7 @@ public class LightShellBehaviour : ProjectileBehaviour {
         oldVelocity = rb.velocity; // Get the starting velocity of the projectile
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         oldVelocity = rb.velocity; // Update the velocity every frame to be used in collision reflection
     }
 
