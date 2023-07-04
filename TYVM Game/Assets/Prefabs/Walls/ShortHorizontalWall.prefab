@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 7257974206947254986}
   - component: {fileID: 1138281771365149027}
   m_Layer: 3
-  m_Name: Short_Horizontal_Wall
+  m_Name: ShortHorizontalWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3427197243464839797}
   - component: {fileID: 3036872077160646834}
   m_Layer: 3
-  m_Name: Short_Vertical_Wall
+  m_Name: ShortVerticalWall
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
