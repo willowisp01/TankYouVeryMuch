@@ -47,7 +47,7 @@ public class EnemyShooting : MonoBehaviour {
     }
 
     private void Start() {
-        layerMask = LayerMask.GetMask("Player", "Obstacles"); // Raycast only hits players and walls (which are in default layer)
+        layerMask = LayerMask.GetMask("Player", "Obstacles", "Default"); // Raycast only hits players and walls (which are in default layer)
         UpdateAimVectors();
     }
 
@@ -72,7 +72,7 @@ public class EnemyShooting : MonoBehaviour {
     private void AdjustAim() {
         // If there is clear line of sight, aim straight
         if (HasClearLineOfSight()) { 
-            Debug.Log("Clearly Sighted");
+            //Debug.Log("Clearly Sighted");
             float newAngle = Vector2.SignedAngle(Vector2.up, aimVector);
             enemyTankTowerRigidbody.MoveRotation(newAngle);
         // There is no clear line of sight, but UpdateAdvancedAngle found an indirect path while cooling down
@@ -160,7 +160,7 @@ public class EnemyShooting : MonoBehaviour {
     // For debugging purposes. Creates a point array from List<Vector3> points used by lineRenderer.
     private void DrawLine() { 
         lineRenderer.positionCount = points.Count;
-        Debug.Log(points.ToArray().Length);
+        //Debug.Log(points.ToArray().Length);
         lineRenderer.SetPositions(points.ToArray());
         points.Clear();
     }
