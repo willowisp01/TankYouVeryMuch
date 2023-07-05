@@ -6,7 +6,7 @@ public abstract class ProjectileBehaviour : MonoBehaviour {
 
     public ProjectileData projectileData;
 
-    protected float damage;
+    public float damage;
     protected float durability;
     protected float duration;
 
