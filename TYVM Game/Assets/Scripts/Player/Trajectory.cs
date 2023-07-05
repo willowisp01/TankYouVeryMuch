@@ -16,9 +16,13 @@ public class Trajectory : MonoBehaviour {
     private PlayerMovement playerMovement;
     private LineRenderer lineRenderer;
 
+    private LayerMask layerMask;
+
     private void Awake() {
         playerMovement = GetComponent<PlayerMovement>();
         lineRenderer = GetComponent<LineRenderer>();
+        layerMask = LayerMask.GetMask("Obstacles", "Default", "Enemy");
+
     }
 
     // Start is called before the first frame update
@@ -41,7 +45,7 @@ public class Trajectory : MonoBehaviour {
     }
 
     private void Reflect(Vector2 position, Vector2 inputDir, float distRemaining, int reflectCount) { 
-        RaycastHit2D hit = Physics2D.Raycast(position, inputDir, distRemaining);
+        RaycastHit2D hit = Physics2D.Raycast(position, inputDir, distRemaining, layerMask);
         Vector2 newInputDir = Vector2.Reflect(inputDir, hit.normal);
         Vector2 newPosition = hit.point + newInputDir.normalized * 0.01f; 
         float distTraversed = hit.distance;

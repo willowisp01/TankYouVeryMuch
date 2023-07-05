@@ -41,8 +41,13 @@ public class LightShellBehaviour : ProjectileBehaviour {
         // The projectile reflects upon collision with a wall
         if (collision.collider.CompareTag("Wall")) {
             durability -= 1;
-            rb.velocity = Vector2.Reflect(oldVelocity, collision.GetContact(0).normal); // collision.GetContact(0).normal gets the unit vector perpendicular to the object
-            rb.transform.up = rb.velocity; // The projectile now faces the new direction
+
+            //rb.velocity = Vector2.Reflect(oldVelocity, collision.GetContact(0).normal); // collision.GetContact(0).normal gets the unit vector perpendicular to the object
+            //rb.transform.up = rb.velocity; // The projectile now faces the new direction
+
+            Vector2 newDir = Vector2.Reflect(oldVelocity, collision.GetContact(0).normal);
+            rb.transform.up = newDir;
+
             if (durability <= 0) {
                 DestroyProjectile();
             }
