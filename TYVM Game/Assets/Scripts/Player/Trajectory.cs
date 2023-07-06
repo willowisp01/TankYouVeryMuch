@@ -16,17 +16,33 @@ public class Trajectory : MonoBehaviour {
     private PlayerMovement playerMovement;
     private LineRenderer lineRenderer;
 
-    private LayerMask layerMask;
+    private LayerMask layerMask, normalLayerMask, penetrateLayerMask;
+
+    [SerializeField]
+    private TrajectoryMode trajectoryMode = TrajectoryMode.NORMAL;
+
+    [SerializeField]
+    enum TrajectoryMode {
+        NORMAL, PENETRATE 
+    }
 
     private void Awake() {
         playerMovement = GetComponent<PlayerMovement>();
         lineRenderer = GetComponent<LineRenderer>();
-        layerMask = LayerMask.GetMask("Obstacles", "BreakableWalls", "Default", "Enemy");
-
+        normalLayerMask = LayerMask.GetMask("Obstacles", "BreakableWalls", "Default", "Enemy");
+        penetrateLayerMask = LayerMask.GetMask(); //nothing for now... 
     }
 
     // Start is called before the first frame update
     void Start() {
+        switch(trajectoryMode) {
+            case TrajectoryMode.NORMAL:
+                layerMask = normalLayerMask;
+                break;
+            case TrajectoryMode.PENETRATE:
+                layerMask = penetrateLayerMask;
+                break;
+        }
         UpdatePosition();
     }
 
