@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71265bb25e6221488ab05eb129ac9a5, type: 3}
   m_Name: PlayerPenetrateShellData
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 2
   durability: 3
   duration: 1
   cooldown: 5
