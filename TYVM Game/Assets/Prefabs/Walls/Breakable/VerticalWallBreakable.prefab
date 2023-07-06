@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4949793220946331095}
   - component: {fileID: 4949793220946331094}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: Brick_wall_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4949793221570561178}
   - component: {fileID: 4949793221570561173}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: Brick_wall_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4949793222017964741}
   - component: {fileID: 4949793222017964740}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: Brick_wall_03 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4949793222655353010}
   - component: {fileID: 4949793222655353008}
   - component: {fileID: 4949793222655353011}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: VerticalWallBreakable
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4949793222667719496}
   - component: {fileID: 4949793222667719499}
-  m_Layer: 2
+  m_Layer: 12
   m_Name: Brick_wall_03 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

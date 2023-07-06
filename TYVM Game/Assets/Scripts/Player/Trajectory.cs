@@ -21,7 +21,7 @@ public class Trajectory : MonoBehaviour {
     private void Awake() {
         playerMovement = GetComponent<PlayerMovement>();
         lineRenderer = GetComponent<LineRenderer>();
-        layerMask = LayerMask.GetMask("Obstacles", "Default", "Enemy");
+        layerMask = LayerMask.GetMask("Obstacles", "BreakableWalls", "Default", "Enemy");
 
     }
 
