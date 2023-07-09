@@ -22,14 +22,14 @@ public class BreakableWall : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float damage) {
+    public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
             DestroyWall();
         }
     }
 
-    private void DestroyWall() {
+    public void DestroyWall() {
         Destroy(gameObject);
     }
 }
