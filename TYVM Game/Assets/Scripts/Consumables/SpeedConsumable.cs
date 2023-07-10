@@ -7,6 +7,8 @@ public class SpeedConsumable : Consumable
     private float initialSpeed; 
     [SerializeField]
     private float multiplier = 1.3f;
+    [SerializeField]
+    private float duration = 5.0f;
     private PlayerMovement playerMovement;
 
     public override void Consume() {
@@ -15,8 +17,9 @@ public class SpeedConsumable : Consumable
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.enabled = false;
         IncreaseSpeed(initialSpeed * multiplier);
-        Invoke("ResetSpeed", 5f);
-        Destroy(gameObject, 5.1f);
+
+        Invoke("ResetSpeed", duration);
+        Destroy(gameObject, duration + 0.1f); //not a pretty way of doing it 
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
