@@ -14,6 +14,9 @@ public class PenetrateShellBehaviour : ProjectileBehaviour {
 
     // Start is called before the first frame update
     private void Start() {
+        if (buffed) {
+            damage += 2;
+        }
         Invoke("DestroyProjectile", duration); // We set up a timer for the projectile to be destroyed
     }
 
@@ -27,6 +30,10 @@ public class PenetrateShellBehaviour : ProjectileBehaviour {
         if (!GetComponent<AudioSource>().isPlaying) {
             Destroy(gameObject);
         }
+    }
+
+    public override void Buff() {
+        damage += 2;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

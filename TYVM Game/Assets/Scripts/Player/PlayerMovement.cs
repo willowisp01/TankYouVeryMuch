@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField]
-    private float moveSpeed = 10f;
+    public float moveSpeed = 10f;
 
     [SerializeField]
     private float rotationSpeed = 10000f;
@@ -69,6 +69,10 @@ public class PlayerMovement : MonoBehaviour {
 
     public Vector2 GetLookDir() {
         return lookDir;
+    }
+
+    public void UpdateSpeed(float speed) {
+        this.moveSpeed = speed;
     }
 
     //TODO: https://www.youtube.com/watch?v=LNLVOjbrQj4 implement the shooting and rotation in a neater way

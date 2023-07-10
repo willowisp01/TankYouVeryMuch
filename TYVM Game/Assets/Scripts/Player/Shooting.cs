@@ -13,6 +13,9 @@ public class Shooting : MonoBehaviour {
     private float cooldown;
     private float timer;
 
+    //[SerializeField]
+    public bool isBuffed = false;
+
     private Transform firePoint;
 
     private void Awake() {
@@ -35,8 +38,20 @@ public class Shooting : MonoBehaviour {
     // Shoots a bullet with bulletForce
     private void Shoot() {
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        ProjectileBehaviour pb = projectile.GetComponent<ProjectileBehaviour>();
+        if (isBuffed) {
+            pb.Buff();
+        }
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * launchForce, ForceMode2D.Impulse);
+    }
+
+    public void ToggleBuff() {
+        if (!isBuffed) {
+            isBuffed = true;
+        } else {
+            isBuffed = false;
+        }
     }
 
     public Transform GetFirePoint() {

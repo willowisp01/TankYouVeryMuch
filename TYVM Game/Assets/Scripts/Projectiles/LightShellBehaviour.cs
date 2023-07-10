@@ -16,6 +16,9 @@ public class LightShellBehaviour : ProjectileBehaviour {
 
     // Start is called before the first frame update
     private void Start() {
+        if (buffed) {
+            damage += 1;
+        }
         Invoke("DestroyProjectile", duration); // We set up a timer for the projectile to be destroyed
         oldVelocity = rb.velocity; // Get the starting velocity of the projectile
     }
@@ -34,6 +37,10 @@ public class LightShellBehaviour : ProjectileBehaviour {
         if (!GetComponent<AudioSource>().isPlaying) {
             Destroy(gameObject);
         }
+    }
+
+    public override void Buff() {
+        damage += 1;
     }
 
     // Behaviour for the projectile upon collision with different game objects
