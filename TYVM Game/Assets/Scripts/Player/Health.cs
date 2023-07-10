@@ -17,6 +17,9 @@ public class Health : MonoBehaviour {
             DestroySelf();
         }
     }
+    public void RestoreHealth(float health) {
+        this.health += health;
+    }
 
     private void DestroySelf() {
         gameObject.SetActive(false);
