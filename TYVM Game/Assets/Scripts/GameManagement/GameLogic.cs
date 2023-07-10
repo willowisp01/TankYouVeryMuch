@@ -1,4 +1,3 @@
-using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,80 +7,51 @@ using UnityEngine.UI;
 public class GameLogic : MonoBehaviour {
 
     [SerializeField]
-    private ScreenPrinter screenPrinter;
+    private Button nextStageButton;
 
     [SerializeField]
-    private Button nextStageButton;
+    private GameEventListener playerDeathListener;
+
+    [SerializeField]
+    private GameEventListener enemyDeathListener;
+
+    [SerializeField]
+    private GameEvent victoryEvent;
+
+    [SerializeField]
+    private GameEvent defeatEvent;
 
     private int totalEnemies;
     private int enemiesRemaining;
-    private GameObject player;
-    private GameObject[] enemies;
-    private StageManager stageManager;
 
     private void Awake() {
-        player = GameObject.FindGameObjectWithTag("Player");
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        totalEnemies = enemies.Length;
+        playerDeathListener.nextEvent.AddListener(TriggerDefeat);
+        enemyDeathListener.nextEvent.AddListener(EnemyDefeated);
+        totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
         enemiesRemaining = totalEnemies;
-        stageManager = GetComponent<StageManager>();
     }
 
-    public void TankDefeated(GameObject tank) {
-        if (tank.CompareTag("Player")) {
-            TriggerDefeat();
-        } else {
-            enemiesRemaining--;
-            if (enemiesRemaining <= 0) {
-                TriggerVictory();
-            }
-        }
-    }
-
-    // Disable player controls after victory
-    public void DisablePlayer() {
-        player.GetComponent<PlayerMovement>().enabled = false;
-        player.GetComponent<Shooting>().enabled = false;
-    }
-
-    public void EnablePlayer() {
-        player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<Shooting>().enabled = true;
-    }
-
-    // Disable all remaining enemies after defeat
-    public void DisableEnemies() {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject e in enemies) {
-            e.GetComponent<EnemyMovement>().enabled = false;
-            e.GetComponent<EnemyShooting>().enabled = false;
-            e.GetComponentInChildren<AIPath>().enabled = false;
-        }
-    }
-
-    public void EnableEnemies() {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject e in enemies) {
-            e.GetComponent<EnemyMovement>().enabled = true;
-            e.GetComponent<EnemyShooting>().enabled = true;
-            e.GetComponentInChildren<AIPath>().enabled = true;
+    private void EnemyDefeated() {
+        enemiesRemaining--;
+        if (enemiesRemaining <= 0) {
+            TriggerVictory();
         }
     }
 
     private void TriggerVictory() {
         // TODO: add stageNumber to a list of cleared stages. 
         // Feel free to add achievements, coins etc. to this method later on.
-        DisablePlayer();
         if (SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1) {
             nextStageButton.interactable = true;
-            nextStageButton.onClick.AddListener(stageManager.Next);
+            nextStageButton.onClick.AddListener(GetComponent<StageManager>().Next);
         }
-        screenPrinter.Result("VICTORY");
+        playerDeathListener.nextEvent.RemoveAllListeners(); // To prevent accidental player death after stage ends
+        victoryEvent.TriggerEvent();
     }
 
     private void TriggerDefeat() {
-        DisableEnemies();
-        screenPrinter.Result("DEFEAT");
+        enemyDeathListener.nextEvent.RemoveAllListeners(); // To prevent accidental enemy deaths after stage ends
+        defeatEvent.TriggerEvent();
     }
 
     public string StageSummary() {

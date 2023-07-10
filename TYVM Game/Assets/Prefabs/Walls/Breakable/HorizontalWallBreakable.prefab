@@ -346,6 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2369767395320854868}
   - component: {fileID: 2369767395320854866}
+  - component: {fileID: 1940971165369271440}
   - component: {fileID: 2369767395320854869}
   m_Layer: 12
   m_Name: HorizontalWallBreakable
@@ -399,6 +400,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.1531563, y: 1.3131349}
   m_EdgeRadius: 0
+--- !u!114 &1940971165369271440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2369767395320854871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c865ee08f85f7a541ae1ba8f06934478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
 --- !u!114 &2369767395320854869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,4 +425,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2053ef80e850bb46b5021760bc16333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallData: {fileID: 11400000, guid: c028419ae3d8cc34d85515e9a85c6e5d, type: 2}
