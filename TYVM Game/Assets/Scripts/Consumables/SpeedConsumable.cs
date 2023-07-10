@@ -11,7 +11,7 @@ public class SpeedConsumable : Consumable
     private float duration = 5.0f;
     private PlayerMovement playerMovement;
 
-    public override void Consume() {
+    protected override void Consume() {
         playerMovement = playerTank.GetComponent<PlayerMovement>();
         initialSpeed = playerMovement.moveSpeed;
         SpriteRenderer sr = GetComponent<SpriteRenderer>();

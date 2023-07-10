@@ -6,6 +6,7 @@ public abstract class Consumable : MonoBehaviour {
 
     // Add more fields and methods as necessary 
     protected bool isUsed;
+    protected GameObject playerTank;
 
-    protected abstract void Consume(GameObject player);   
+    protected abstract void Consume();   
 }
