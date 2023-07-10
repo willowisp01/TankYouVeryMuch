@@ -17,7 +17,7 @@ public class GameEvent : ScriptableObject {
     // Adds a listener to this event
     public void AddListener(GameEventListener listener) {
         // The listener is only added if it is not yet in the list
-        if (!(listeners.Contains(listener))) {
+        if (!listeners.Contains(listener)) {
             listeners.Add(listener);
         }
     }
