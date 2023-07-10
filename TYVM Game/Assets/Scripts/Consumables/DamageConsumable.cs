@@ -7,7 +7,7 @@ public class DamageConsumable : Consumable
     [SerializeField]
     private float duration = 5.0f;
     private Shooting shooting;
-    public override void Consume() {
+    protected override void Consume() {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         sr.enabled = false;
         ToggleBuff(); 
