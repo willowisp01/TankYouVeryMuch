@@ -5,10 +5,7 @@ using UnityEngine;
 public abstract class Consumable : MonoBehaviour
 {
     //add more fields and methods as necessary 
-    [SerializeField]
-    public SpriteRenderer spriteRenderer;
-
-    [SerializeField]
-    public Collider2D c2d;
+    protected bool isUsed;
+    protected GameObject playerTank;
     public abstract void Consume();   
 }

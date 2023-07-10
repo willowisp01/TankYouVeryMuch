@@ -6,12 +6,16 @@ public class HealthConsumable : Consumable
 {
     public override void Consume()
     {
-        Debug.Log("Consumed");
+        Health playerHealth = playerTank.GetComponent<Health>();
+        playerHealth.RestoreHealth(1f);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("PlayerHull")) {
-            Debug.Log("hi");
+        if (other.gameObject.CompareTag("PlayerHull") && !isUsed) {
+            isUsed = true;
+            playerTank = other.transform.parent.gameObject;
+            Consume();
         }
     }
 }
