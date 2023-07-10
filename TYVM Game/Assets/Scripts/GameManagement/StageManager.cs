@@ -4,13 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour {
-
     private int currentStage;
 
-    [SerializeField]
-    private GameEvent backToMainEvent;
-
-    private void Start() {
+    private void Awake() {
         currentStage = SceneManager.GetActiveScene().buildIndex;
     }
 
@@ -27,7 +23,6 @@ public class StageManager : MonoBehaviour {
     }
 
     public void BackToMain() {
-        backToMainEvent.TriggerEvent();
         SceneManager.LoadSceneAsync(0);
     }
 
