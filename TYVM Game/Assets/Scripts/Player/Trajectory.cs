@@ -19,11 +19,12 @@ public class Trajectory : MonoBehaviour {
     private LayerMask layerMask, normalLayerMask, penetrateLayerMask;
 
     [SerializeField]
-    private TrajectoryMode trajectoryMode = TrajectoryMode.NORMAL;
+    private TrajectoryMode trajectoryMode = TrajectoryMode.Normal;
 
-    [SerializeField]
-    enum TrajectoryMode {
-        NORMAL, PENETRATE 
+    // Enum type to represent the different aiming modes
+    private enum TrajectoryMode {
+        Normal, // Normal reflection mode
+        Penetrate // Used for projectiles which penetrate walls
     }
 
     private void Awake() {
@@ -36,10 +37,10 @@ public class Trajectory : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         switch(trajectoryMode) {
-            case TrajectoryMode.NORMAL:
+            case TrajectoryMode.Normal:
                 layerMask = normalLayerMask;
                 break;
-            case TrajectoryMode.PENETRATE:
+            case TrajectoryMode.Penetrate:
                 layerMask = penetrateLayerMask;
                 break;
         }

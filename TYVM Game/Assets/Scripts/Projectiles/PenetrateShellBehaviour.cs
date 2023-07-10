@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PenetrateShellBehaviour : ProjectileBehaviour {
 
-    private Rigidbody2D rb;
     private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
         damage = projectileData.damage;
         durability = projectileData.durability;
         duration = projectileData.duration;
@@ -37,7 +35,7 @@ public class PenetrateShellBehaviour : ProjectileBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("EnemyHull")) {
+        if (collision.gameObject.CompareTag("EnemyHull")) { // We should change this if/when enemies use this projectile too
             durability -= 1;
             collision.GetComponentInParent<Health>().TakeDamage(damage);
             if (durability <= 0) {
@@ -45,7 +43,7 @@ public class PenetrateShellBehaviour : ProjectileBehaviour {
             }
         } else if (collision.gameObject.layer == LayerMask.NameToLayer("BreakableWalls")) {
             durability -= 1;
-            collision.GetComponentInParent<BreakableWall>().DestroyWall();
+            Destroy(collision.gameObject);
         }
     }
 }
