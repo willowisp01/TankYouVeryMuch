@@ -12,13 +12,13 @@ public class SkillSelect : MonoBehaviour {
 
     // An enum type to keep track of the different states of the skill
     private enum SkillState {
-        CanUse, // The skill can be used
-        IsActive, // The skill is currently active
-        OnCooldown, // The skill is on cooldown and cannot be used
-        NoMoreUses // All uses of the skill have been exhausted
+        canUse, // The skill can be used
+        isActive, // The skill is currently active
+        onCooldown, // The skill is on cooldown and cannot be used
+        noMoreUses // All uses of the skill have been exhausted
     }
 
-    SkillState state = SkillState.CanUse; // The skill can be used at the start
+    SkillState state = SkillState.canUse; // The skill can be used at the start
 
     [SerializeField]
     private KeyCode activationKey; // The key to activate the skill
@@ -31,33 +31,33 @@ public class SkillSelect : MonoBehaviour {
     private void Update() {
         switch (state) {
             // If the skill can be used, activate it upon pressing the key
-            case SkillState.CanUse:
+            case SkillState.canUse:
                 if (Input.GetKeyDown(activationKey)) {
                     skill.Activate(gameObject);
                     uses--; // Number of uses decreases by 1
-                    state = SkillState.IsActive; // The skill is now active
+                    state = SkillState.isActive; // The skill is now active
                     activeTime = skill.activeTime; // The skill is active for activeTime
                 }
                 break;
             // If the skill is active, it goes into cooldown when activeTime is up
-            case SkillState.IsActive:
+            case SkillState.isActive:
                 activeTime -= Time.deltaTime;
                 if (activeTime <= 0) {
-                    state = SkillState.OnCooldown; // The skill is now on cooldown
+                    state = SkillState.onCooldown; // The skill is now on cooldown
                     cooldown = skill.cooldown;
                 }
                 if (uses == 0) {
-                    state = SkillState.NoMoreUses;
+                    state = SkillState.noMoreUses;
                 }
                 break;
             // The skill is ready to use again once the cooldown is over
-            case SkillState.OnCooldown:
+            case SkillState.onCooldown:
                 cooldown -= Time.deltaTime;
                 if (cooldown <= 0) {
-                    state = SkillState.CanUse; // The skill can be used again
+                    state = SkillState.canUse; // The skill can be used again
                 }
                 break;
-            case SkillState.NoMoreUses:
+            case SkillState.noMoreUses:
                 break;
         }
     }

@@ -16,24 +16,18 @@ public class ScreenPrinter : MonoBehaviour {
     [SerializeField]
     private TextMeshProUGUI summary; // Stage summary
 
-    [SerializeField]
-    private GameEventListener victoryListener;
-
-    [SerializeField]
-    private GameEventListener defeatListener;
-
     private int stageNumber;
+    private GameLogic gameLogic;
 
     private void Awake() {
-        victoryListener.nextEvent.AddListener(() => Result("VICTORY"));
-        defeatListener.nextEvent.AddListener(() => Result("DEFEAT"));
         stageNumber = SceneManager.GetActiveScene().buildIndex;
+        gameLogic = GameObject.Find("GameManager").GetComponent<GameLogic>();
     }
 
-    private void Result(string res) {
-        transform.Find("Screen").gameObject.SetActive(true);
+    public void Result(string res) {
+        gameObject.SetActive(true);
         result.text = res;
-        summary.text = GameObject.Find("GameManager").GetComponent<GameLogic>().StageSummary();
+        summary.text = gameLogic.StageSummary();
         switch (res) {
             case "VICTORY":
                 message.text = "All enemies killed!";
