@@ -12,7 +12,10 @@ GameObject:
   - component: {fileID: 4266355885669489380}
   - component: {fileID: 4266355885669489379}
   - component: {fileID: 4266355885669489378}
+  - component: {fileID: -3091578655258356176}
+  - component: {fileID: 4015147938203014510}
   - component: {fileID: 4266355885669489381}
+  - component: {fileID: 6904506727955238326}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -48,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextStageButton: {fileID: 0}
+  stagesUnlocked: {fileID: 11400000, guid: a35d6dc95794a6f429b7ee30b47a70a4, type: 2}
   playerDeathListener: {fileID: 4266355885669489379}
   enemyDeathListener: {fileID: 4266355885669489378}
   victoryEvent: {fileID: 11400000, guid: 4ca96db40d322b34c9675268e1cd0abd, type: 2}
@@ -84,6 +88,38 @@ MonoBehaviour:
   nextEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-3091578655258356176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266355885669489382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd60395c7f46c254cb03411ec9043902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4ca96db40d322b34c9675268e1cd0abd, type: 2}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4015147938203014510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266355885669489382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd60395c7f46c254cb03411ec9043902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 6c146b2b517c1964a95917d6f3b7b57d, type: 2}
+  nextEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4266355885669489381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,3 +133,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backToMainEvent: {fileID: 11400000, guid: 7f13b886469491645be3030ea96fc4f3, type: 2}
+--- !u!114 &6904506727955238326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266355885669489382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c17f1a7e9282e054f9cb98880d3a806c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumables:
+  - {fileID: 1806883884603259667, guid: 21764361a2399014384a0bb52cc3a5cb, type: 3}
+  - {fileID: 7201967486285735207, guid: 1026ffe34a666b34cbda61ee2222b903, type: 3}
+  - {fileID: 6535819699926410095, guid: e2ad0c0f3872c2845be0e18a450ae64c, type: 3}
+  cooldown: 10
+  victoryListener: {fileID: -3091578655258356176}
+  defeatListener: {fileID: 4015147938203014510}

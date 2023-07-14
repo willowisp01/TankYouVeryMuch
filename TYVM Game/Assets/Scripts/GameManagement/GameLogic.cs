@@ -10,6 +10,9 @@ public class GameLogic : MonoBehaviour {
     private Button nextStageButton;
 
     [SerializeField]
+    private StagesUnlocked stagesUnlocked;
+
+    [SerializeField]
     private GameEventListener playerDeathListener;
 
     [SerializeField]
@@ -42,6 +45,13 @@ public class GameLogic : MonoBehaviour {
         // TODO: add stageNumber to a list of cleared stages. 
         // Feel free to add achievements, coins etc. to this method later on.
         if (SceneManager.sceneCountInBuildSettings > SceneManager.GetActiveScene().buildIndex + 1) {
+            // Quite convoluted since SceneManager only works with scenes that have already been loaded and we cannot get the name of scenes that have
+            // not been loaded yet (e.g. the next stage). So, we use SceneUtility.GetScenePathByBuildIndex to get the scene path, then use another function
+            // to get the stage name. 
+            string nextStageNum = SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
+            nextStageNum = System.IO.Path.GetFileNameWithoutExtension(nextStageNum);
+            Debug.Log(nextStageNum);
+            stagesUnlocked.Unlock(nextStageNum);
             nextStageButton.interactable = true;
             nextStageButton.onClick.AddListener(GetComponent<StageManager>().Next);
         }

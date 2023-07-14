@@ -10,14 +10,15 @@ public class LightShellBehaviour : ProjectileBehaviour {
     private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         damage = projectileData.damage;
+        damageBuff = projectileData.damageBuff;
         durability = projectileData.durability;
         duration = projectileData.duration;
     }
 
     // Start is called before the first frame update
     private void Start() {
-        if (buffed) {
-            damage += 1;
+        if (isBuffed) {
+            damage += damageBuff;
         }
         Invoke("DestroyProjectile", duration); // We set up a timer for the projectile to be destroyed
         oldVelocity = rb.velocity; // Get the starting velocity of the projectile

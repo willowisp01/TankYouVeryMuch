@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ProjectileData")]
 public class ProjectileData : ScriptableObject {
     public float damage; // The amount of damage the projectile does
+    public float damageBuff; // The amount of damage added upon being buffed
     public float durability; // Projectile durability (the amount of times it can reflect)
     public float duration; // The amount of time the projectile can exist for
     public float cooldown; // The amount of time that has to pass between consecutive firings

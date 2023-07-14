@@ -14,8 +14,21 @@ public class StageManager : MonoBehaviour {
         currentStage = SceneManager.GetActiveScene().buildIndex;
     }
 
-    public void Begin() {
-        SceneManager.LoadSceneAsync(1);
+    public void BackToMain() {
+        backToMainEvent.TriggerEvent();
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+
+    public void SelectStage(string stage) {
+        SceneManager.LoadSceneAsync(stage);
+    }
+
+    public void StageSelect() {
+        SceneManager.LoadSceneAsync("StageSelect");
+    }
+
+    public void Customise() {
+        SceneManager.LoadSceneAsync("Customise");
     }
 
     public void Restart() {
@@ -24,11 +37,6 @@ public class StageManager : MonoBehaviour {
 
     public void Next() {
         SceneManager.LoadSceneAsync(currentStage + 1);
-    }
-
-    public void BackToMain() {
-        backToMainEvent.TriggerEvent();
-        SceneManager.LoadSceneAsync(0);
     }
 
     public void Quit() {

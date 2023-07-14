@@ -13,7 +13,6 @@ public class Shooting : MonoBehaviour {
     private float cooldown;
     private float timer;
 
-    //[SerializeField]
     public bool isBuffed = false;
 
     private Transform firePoint;

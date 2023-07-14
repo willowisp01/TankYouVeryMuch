@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void UpdateSpeed(float speed) {
-        this.moveSpeed = speed;
+        moveSpeed = speed;
     }
 
     //TODO: https://www.youtube.com/watch?v=LNLVOjbrQj4 implement the shooting and rotation in a neater way

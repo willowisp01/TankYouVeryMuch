@@ -15,7 +15,7 @@ public class HealthConsumable : Consumable {
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.CompareTag("PlayerHull") && !(isUsed)) {
             isUsed = true;
-            playerTank = other.gameObject;
+            playerTank = other.transform.parent.gameObject;
             Consume();
         }
     }

@@ -6,14 +6,15 @@ public class PenetrateShellBehaviour : ProjectileBehaviour {
 
     private void Awake() {
         damage = projectileData.damage;
+        damageBuff = projectileData.damageBuff;
         durability = projectileData.durability;
         duration = projectileData.duration;
     }
 
     // Start is called before the first frame update
     private void Start() {
-        if (buffed) {
-            damage += 2;
+        if (isBuffed) {
+            damage += damageBuff;
         }
         Invoke("DestroyProjectile", duration); // We set up a timer for the projectile to be destroyed
     }
