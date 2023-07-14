@@ -16,7 +16,6 @@ public class StagesUnlocked : ScriptableObject {
 
     public void Unlock(string stageNum) {
         Stage next = stages.Find(stage => stage.name.Equals(stageNum));
-        Debug.Log(next.name);
         next.isUnlocked = true;
     }
 
