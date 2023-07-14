@@ -12,10 +12,19 @@ public class ConsumableSpawn : MonoBehaviour {
     private float timer;
     private int size;
 
+    [SerializeField]
+    private GameEventListener victoryListener;
+
+    [SerializeField]
+    private GameEventListener defeatListener;
+
     // Start is called before the first frame update
     void Start() {
         size = consumables.Length;
-        Spawn();
+        timer = 0.1f;
+        // The spawning should stop when the stage ends
+        victoryListener.nextEvent.AddListener(Stop);
+        defeatListener.nextEvent.AddListener(Stop);
     }
 
     // Update is called once per frame
@@ -36,9 +45,13 @@ public class ConsumableSpawn : MonoBehaviour {
         ContactFilter2D obstacleFilter = new ContactFilter2D();
         obstacleFilter.SetLayerMask(LayerMask.NameToLayer("Obstacles"));
         consumable.GetComponent<Collider2D>().OverlapCollider(obstacleFilter, overlap);
-        if (overlap[0] != null) { // If there is a overlap, we destroy the current consumable and call Spawn() again
+        if (overlap[0] != null) { // If there is an overlap, we destroy the current consumable and call Spawn() again
             Destroy(consumable);
             Spawn();
         }
+    }
+
+    private void Stop() {
+        enabled = false;
     }
 }

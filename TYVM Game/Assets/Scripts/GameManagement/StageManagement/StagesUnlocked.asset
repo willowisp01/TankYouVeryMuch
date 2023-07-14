@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5751508935923b42b5581f8546dd229, type: 3}
   m_Name: StagesUnlocked
   m_EditorClassIdentifier: 
-  stage1: 0
+  stages:
+  - name: Stage 1
+    isUnlocked: 1
+  - name: Stage 2
+    isUnlocked: 0
+  - name: Stage 3
+    isUnlocked: 0
