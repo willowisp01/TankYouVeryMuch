@@ -11,27 +11,24 @@ public class EnemyShooting : MonoBehaviour
 
     private float launchForce;
     private float cooldown;
-    private float timer;
     private Radar radar;
 
     // Layer Mask
     private LayerMask layerMask; // Mask to ignore enemies
 
     // Fields for advanced aiming
-    private bool foundAdvancedPath = false;
     private float latestAdvancedAngle;
 
     // Others
     private GameObject playerHull; // playerHull is the player tank hull, not this (enemy) tank hull!
     private Rigidbody2D enemyTankTowerRigidbody; // This (enemy) tank tower's rigidbody 
     private Transform firePoint; // This (enemy) tank's firepoint
-    private Vector2 enemyPos, playerTankPos, aimVector, aimVectorAdvanced; // Position of the tank towers' rigidbodies
+    private Vector2 enemyPos, playerTankPos, aimVector; // Position of the tank towers' rigidbodies
 
     private void Awake() {
         projectileData = projectilePrefab.GetComponent<ProjectileBehaviour>().projectileData;
         launchForce = projectileData.launchForce;
         cooldown = projectileData.cooldown;
-        timer = cooldown;
         radar = GetComponentInChildren<Radar>();
         firePoint = transform.Find("Tower/ProjectileSource");
         playerHull = GameObject.FindWithTag("PlayerHull");
@@ -49,7 +46,7 @@ public class EnemyShooting : MonoBehaviour
         latestAdvancedAngle = radar.GetLatestAdvancedAngle();
     }
 
-    IEnumerator EnemyAI() {
+    private IEnumerator EnemyAI() {
         float stopFor = 0.5f;
         while (true) {
             float moveToAngle;
