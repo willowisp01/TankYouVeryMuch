@@ -8,7 +8,7 @@ public class Radar : MonoBehaviour {
     LineRenderer lineRenderer;
 
     [SerializeField]
-    private float rotationSpeed = 90; // Degrees per second. Too high and will often miss, too low and tank will hardly find any suitable shots.
+    private float rotationSpeed = 45f; // Degrees per second. Too high and will often miss, too low and tank will hardly find any suitable shots.
 
     [SerializeField]
     private Vector2 lookDir;
@@ -16,6 +16,7 @@ public class Radar : MonoBehaviour {
 
     [SerializeField]
     private List<Vector3> points = new List<Vector3>();
+    private float latestAdvancedAngle;
     private float radarDistance = 50f;
     private int maxReflects = 3; // Max reflects for advanced aiming
 
@@ -29,7 +30,9 @@ public class Radar : MonoBehaviour {
 
     private void FixedUpdate() {
         Sweep();
-        Reflect(transform.position, lookDir, radarDistance);
+        if (Reflect(transform.position, lookDir, radarDistance)) {
+            latestAdvancedAngle = Vector2.SignedAngle(Vector2.up, GetDirection());
+        }
         DrawLine();
     }
 
@@ -43,13 +46,20 @@ public class Radar : MonoBehaviour {
         return lookDir;
     }
 
-    private void Sweep() { //Sweeps the stage for enemies. must call every FixedUpdate
+    // Get the angle associated with the reflected bullet path. 
+    public float GetLatestAdvancedAngle() {
+        return latestAdvancedAngle;
+    }
+
+    //Sweeps the stage for enemies. must call every FixedUpdate
+    private void Sweep() { 
         Debug.DrawRay(transform.position, transform.up * 3.0f, Color.red, 0.01f);
         transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.deltaTime);
         lookDir = transform.up.normalized;
     }
 
-    private bool Reflect(Vector2 position, Vector2 inputDir, float distRemaining) {
+    //Returns true if a reflected bullet is able to hit the player, else false.
+    public bool Reflect(Vector2 position, Vector2 inputDir, float distRemaining) {
         return ReflectHelper(position, inputDir, distRemaining, 0);
     }
 
