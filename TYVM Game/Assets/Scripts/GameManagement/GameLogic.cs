@@ -60,6 +60,10 @@ public class GameLogic : MonoBehaviour {
     }
 
     private void TriggerDefeat() {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies) {
+            enemy.GetComponent<EnemyShooting>().StopShooting();
+        }
         enemyDeathListener.nextEvent.RemoveAllListeners(); // To prevent accidental enemy deaths after stage ends
         defeatEvent.TriggerEvent();
     }

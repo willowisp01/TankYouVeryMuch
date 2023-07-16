@@ -25,6 +25,7 @@ public class EnemyShooting : MonoBehaviour
     private Rigidbody2D enemyTankTowerRigidbody; // This (enemy) tank tower's rigidbody 
     private Transform firePoint; // This (enemy) tank's firepoint
     private Vector2 enemyPos, playerTankPos, aimVector; // Position of the tank towers' rigidbodies
+    public Coroutine enemyAI;
 
     private void Awake() {
         projectileData = projectilePrefab.GetComponent<ProjectileBehaviour>().projectileData;
@@ -38,7 +39,7 @@ public class EnemyShooting : MonoBehaviour
 
     private void Start() {
         layerMask = LayerMask.GetMask("Player", "Obstacles", "Default"); // Raycast only hits players and walls (which are in default layer)
-        StartCoroutine(EnemyAI());
+        enemyAI = StartCoroutine(EnemyAI());
     }
 
     // Update is called once per frame
@@ -48,7 +49,7 @@ public class EnemyShooting : MonoBehaviour
     }
 
     private IEnumerator EnemyAI() {
-        float stopFor = 0.5f;
+        float stopFor = 0.3f;
         AIPath ai = GetComponentInChildren<AIPath>();
         while (true) {
             float moveToAngle;
@@ -65,6 +66,10 @@ public class EnemyShooting : MonoBehaviour
             Shoot();
             ai.canMove = true;
         }
+    }
+
+    public void StopShooting() {
+        StopCoroutine(enemyAI);
     }
 
     private void UpdateAimVectors() {
