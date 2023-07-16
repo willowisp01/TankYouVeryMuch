@@ -58,7 +58,10 @@ public class LightShellBehaviour : ProjectileBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        collision.GetComponentInParent<Health>().TakeDamage(damage);
-        DestroyProjectile() ;
+        Health health = collision.GetComponentInParent<Health>();
+        if (health != null) {
+            health.TakeDamage(damage);
+            DestroyProjectile();
+        }
     }
 }
