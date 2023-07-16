@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyShooting : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class EnemyShooting : MonoBehaviour
 
     private IEnumerator EnemyAI() {
         float stopFor = 0.5f;
+        AIPath ai = GetComponentInChildren<AIPath>();
         while (true) {
             float moveToAngle;
             yield return new WaitForSeconds(cooldown - stopFor);
@@ -58,8 +60,10 @@ public class EnemyShooting : MonoBehaviour
             }
             enemyTankTowerRigidbody.MoveRotation(moveToAngle); //TODO: over a period of time?
             //stop the tank! 
+            ai.canMove = false;
             yield return new WaitForSeconds(stopFor);
             Shoot();
+            ai.canMove = true;
         }
     }
 
