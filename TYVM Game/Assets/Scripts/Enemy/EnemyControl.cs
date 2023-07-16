@@ -22,6 +22,7 @@ public class EnemyControl : MonoBehaviour {
 
     public void Disable() {
         GetComponent<EnemyMovement>().enabled = false;
+        GetComponent<EnemyShooting>().StopShooting(); // Stops the coroutine
         GetComponent<EnemyShooting>().enabled = false;
         GetComponentInChildren<AIPath>().enabled = false;
     }

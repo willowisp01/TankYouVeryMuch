@@ -50,7 +50,6 @@ public class GameLogic : MonoBehaviour {
             // to get the stage name. 
             string nextStageNum = SceneUtility.GetScenePathByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1);
             nextStageNum = System.IO.Path.GetFileNameWithoutExtension(nextStageNum);
-            Debug.Log(nextStageNum);
             stagesUnlocked.Unlock(nextStageNum);
             nextStageButton.interactable = true;
             nextStageButton.onClick.AddListener(GetComponent<StageManager>().Next);
@@ -60,10 +59,6 @@ public class GameLogic : MonoBehaviour {
     }
 
     private void TriggerDefeat() {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies) {
-            enemy.GetComponent<EnemyShooting>().StopShooting();
-        }
         enemyDeathListener.nextEvent.RemoveAllListeners(); // To prevent accidental enemy deaths after stage ends
         defeatEvent.TriggerEvent();
     }
