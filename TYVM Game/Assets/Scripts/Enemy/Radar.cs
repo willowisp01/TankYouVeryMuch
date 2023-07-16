@@ -16,6 +16,7 @@ public class Radar : MonoBehaviour {
 
     [SerializeField]
     private List<Vector3> points = new List<Vector3>();
+    private float radarDistance = 50f;
     private int maxReflects = 3; // Max reflects for advanced aiming
 
 
@@ -28,7 +29,7 @@ public class Radar : MonoBehaviour {
 
     private void FixedUpdate() {
         Sweep();
-        Reflect(transform.position, lookDir, 50f);
+        Reflect(transform.position, lookDir, radarDistance);
         DrawLine();
     }
 
@@ -42,7 +43,7 @@ public class Radar : MonoBehaviour {
         return lookDir;
     }
 
-    private void Sweep() { //Sweeps the stage for enemies. 
+    private void Sweep() { //Sweeps the stage for enemies. must call every FixedUpdate
         Debug.DrawRay(transform.position, transform.up * 3.0f, Color.red, 0.01f);
         transform.Rotate(new Vector3(0, 0, rotationSpeed) * Time.deltaTime);
         lookDir = transform.up.normalized;
