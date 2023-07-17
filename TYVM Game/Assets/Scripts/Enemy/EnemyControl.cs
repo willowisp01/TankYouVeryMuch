@@ -28,7 +28,7 @@ public class EnemyControl : MonoBehaviour {
 
     public void Enable() {
         GetComponent<EnemyMovement>().enabled = true;
-        GetComponent<EnemyShooting>().StartShooting();
+        GetComponent<EnemyShooting>().StartShooting(); // Start the coroutine
         GetComponentInChildren<AIPath>().enabled = true;
     }
 }
