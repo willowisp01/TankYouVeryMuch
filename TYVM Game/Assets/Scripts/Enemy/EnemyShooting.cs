@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyShooting : MonoBehaviour
-{
+public class EnemyShooting : MonoBehaviour {
 
     [SerializeField]
     private GameObject projectilePrefab;
@@ -66,6 +65,10 @@ public class EnemyShooting : MonoBehaviour
             Shoot();
             ai.canMove = true;
         }
+    }
+
+    public void StartShooting() {
+        StartCoroutine(EnemyAI());
     }
 
     public void StopShooting() {
