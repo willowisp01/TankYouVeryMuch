@@ -381,7 +381,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -821,10 +821,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2039933225706113125, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: projectilePrefab
+    - target: {fileID: 5549373910267149391, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+      propertyPath: skill
       value: 
-      objectReference: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
+      objectReference: {fileID: 11400000, guid: 74a991b075e838541886b43964377eac, type: 2}
     - target: {fileID: 8091733512695735154, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -873,25 +873,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTank
       objectReference: {fileID: 0}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 214486618}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TankDefeated
-      objectReference: {fileID: 0}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameLogic, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+    - target: {fileID: 8613518996440690591, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+      propertyPath: health
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
@@ -1387,6 +1371,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 214486619}
+    - target: {fileID: 3760856842084812942, guid: 52e6d051e2ec3d240aea463ddda2c03a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760856842084812943, guid: 52e6d051e2ec3d240aea463ddda2c03a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760856842338477492, guid: 52e6d051e2ec3d240aea463ddda2c03a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760856842338477493, guid: 52e6d051e2ec3d240aea463ddda2c03a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3760856842338477493, guid: 52e6d051e2ec3d240aea463ddda2c03a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3760856843031991113, guid: 52e6d051e2ec3d240aea463ddda2c03a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

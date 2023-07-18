@@ -1640,6 +1640,7 @@ GameObject:
   - component: {fileID: 2031873481}
   - component: {fileID: 2031873485}
   - component: {fileID: 2031873486}
+  - component: {fileID: 2031873487}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1761,3 +1762,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 300686125}
   stagesUnlocked: {fileID: 11400000, guid: a35d6dc95794a6f429b7ee30b47a70a4, type: 2}
+--- !u!114 &2031873487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031873480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b326fc9b5686d8d41a4a286256416744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
