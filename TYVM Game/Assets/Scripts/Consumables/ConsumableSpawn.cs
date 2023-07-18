@@ -41,9 +41,9 @@ public class ConsumableSpawn : MonoBehaviour {
         Vector2 location = new Vector2(Random.Range(-16f, 16f), Random.Range(-8f, 8f)); // Generate a random location for it to spawn
         GameObject consumable = Instantiate(consumables[consumableIndex], location, transform.rotation);
         // We set up a filter to check if the consumable overlaps with any walls
-        Collider2D[] overlap = new Collider2D[5];
+        Collider2D[] overlap = new Collider2D[1];
         ContactFilter2D obstacleFilter = new ContactFilter2D();
-        obstacleFilter.SetLayerMask(LayerMask.NameToLayer("Obstacles"));
+        obstacleFilter.SetLayerMask(LayerMask.NameToLayer("Obstacles", "BreakableWall"));
         consumable.GetComponent<Collider2D>().OverlapCollider(obstacleFilter, overlap);
         if (overlap[0] != null) { // If there is an overlap, we destroy the current consumable and call Spawn() again
             Destroy(consumable);
