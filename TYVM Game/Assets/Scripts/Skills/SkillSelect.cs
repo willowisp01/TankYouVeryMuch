@@ -28,7 +28,6 @@ public class SkillSelect : MonoBehaviour {
     // Update is called once per frame
     private void Update() {
         if (Input.GetKeyDown(activationKey) && state == SkillState.CanUse) {
-            Debug.Log("hi");
             Coroutine skillCycle = StartCoroutine(SkillCycle());
         }
     }

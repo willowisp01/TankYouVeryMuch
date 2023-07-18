@@ -14,5 +14,12 @@ public abstract class ProjectileBehaviour : MonoBehaviour {
     protected float duration;
 
     public abstract void Buff();
-    public abstract void DestroyProjectile();
+    public abstract IEnumerator DestroyProjectile();
+    
+    // Method to destroy projectiles after active duration is over 
+    public IEnumerator DestroyAfterDuration(float duration) 
+    {
+        yield return new WaitForSeconds(duration);
+        StartCoroutine(DestroyProjectile());
+    }
 }

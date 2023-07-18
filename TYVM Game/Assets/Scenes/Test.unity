@@ -479,7 +479,7 @@ PrefabInstance:
     - target: {fileID: 2039933225706113125, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
+      objectReference: {fileID: 3412875855320464894, guid: 24a1c63184bb4b34aaddf46706b1e381, type: 3}
     - target: {fileID: 5549373910267149391, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: skill
       value: 
@@ -692,11 +692,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6535819699926410092, guid: e2ad0c0f3872c2845be0e18a450ae64c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.33
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 6535819699926410092, guid: e2ad0c0f3872c2845be0e18a450ae64c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.72
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 6535819699926410092, guid: e2ad0c0f3872c2845be0e18a450ae64c, type: 3}
       propertyPath: m_LocalPosition.z
