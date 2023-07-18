@@ -7,6 +7,7 @@ public class HomingProjectileBehaviour : MonoBehaviour
     [SerializeField]
     GameObject explosionPrefab;
     GameObject playerTank;
+    private bool isUsed = false;
     public float activeTime;
     // Start is called before the first frame update
     private void Start() {
@@ -16,7 +17,8 @@ public class HomingProjectileBehaviour : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("EnemyHull") || other.CompareTag("Wall")) {
+        if ((other.CompareTag("EnemyHull") || other.CompareTag("Wall")) && !isUsed) {
+            isUsed = true;
             Explosion();
         }
     }

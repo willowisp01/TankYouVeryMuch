@@ -821,6 +821,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5549373910267149391, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: 74a991b075e838541886b43964377eac, type: 2}
     - target: {fileID: 8091733512695735154, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -871,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8613518996440690591, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: health
-      value: 111.8
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}

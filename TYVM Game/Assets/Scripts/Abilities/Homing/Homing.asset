@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Homing
   cooldown: 3
-  activeTime: 3
+  activeTime: 15
   uses: 2
   projectilePrefab: {fileID: 6368885776608076694, guid: 43fec5a8bb53c9e40ae825b334eee8be, type: 3}
