@@ -11,12 +11,4 @@ public class HealthConsumable : Consumable {
         playerHealth.RestoreHealth(health);
         Destroy(gameObject);
     }
-
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("PlayerHull") && !(isUsed)) {
-            isUsed = true;
-            playerTank = other.transform.parent.gameObject;
-            Consume();
-        }
-    }
 }

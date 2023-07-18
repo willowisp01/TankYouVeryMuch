@@ -9,4 +9,12 @@ public abstract class Consumable : MonoBehaviour {
     protected GameObject playerTank;
 
     protected abstract void Consume();   
+
+    public void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("PlayerHull") && !isUsed) {
+            isUsed = true;
+            playerTank = other.transform.root.gameObject;
+            Consume();
+        }
+    }
 }
