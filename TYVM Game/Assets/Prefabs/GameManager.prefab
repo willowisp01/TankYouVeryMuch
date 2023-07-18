@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4015147938203014510}
   - component: {fileID: 4266355885669489381}
   - component: {fileID: 6904506727955238326}
+  - component: {fileID: -4617841881122955419}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -152,3 +153,15 @@ MonoBehaviour:
   cooldown: 10
   victoryListener: {fileID: -3091578655258356176}
   defeatListener: {fileID: 4015147938203014510}
+--- !u!114 &-4617841881122955419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266355885669489382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b326fc9b5686d8d41a4a286256416744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

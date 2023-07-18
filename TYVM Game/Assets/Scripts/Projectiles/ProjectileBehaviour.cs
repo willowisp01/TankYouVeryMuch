@@ -6,11 +6,14 @@ public abstract class ProjectileBehaviour : MonoBehaviour {
 
     public ProjectileData projectileData;
 
-    [SerializeField]
     public bool isBuffed = false; // If buffed, apply damage boost (implemented in each projectile)
     public float damage;
     public float damageBuff;
+
+    [SerializeField]
     protected float durability;
+
+    [SerializeField]
     protected float duration;
 
     public abstract void Buff();

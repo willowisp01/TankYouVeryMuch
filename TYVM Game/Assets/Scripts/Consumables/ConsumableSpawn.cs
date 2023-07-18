@@ -21,7 +21,7 @@ public class ConsumableSpawn : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         size = consumables.Length;
-        timer = 0.1f;
+        timer = 1f;
         // The spawning should stop when the stage ends
         victoryListener.nextEvent.AddListener(Stop);
         defeatListener.nextEvent.AddListener(Stop);

@@ -68,6 +68,10 @@ public class EnemyShooting : MonoBehaviour
         }
     }
 
+    public void StartShooting() {
+        enemyAI = StartCoroutine(EnemyAI());
+    }
+
     public void StopShooting() {
         StopCoroutine(enemyAI);
     }
