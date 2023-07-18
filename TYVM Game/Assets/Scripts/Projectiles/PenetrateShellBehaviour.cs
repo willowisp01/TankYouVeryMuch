@@ -39,7 +39,7 @@ public class PenetrateShellBehaviour : ProjectileBehaviour {
             durability -= 1;
             collision.GetComponentInParent<Health>().TakeDamage(damage);
             if (durability <= 0) {
-                DestroyProjectile();
+                StartCoroutine(DestroyProjectile());
             }
         } else if (collision.gameObject.layer == LayerMask.NameToLayer("BreakableWalls")) {
             durability -= 1;

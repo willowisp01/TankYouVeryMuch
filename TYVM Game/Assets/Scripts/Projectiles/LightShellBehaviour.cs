@@ -51,7 +51,7 @@ public class LightShellBehaviour : ProjectileBehaviour {
             Vector2 newDir = Vector2.Reflect(oldVelocity, collision.GetContact(0).normal);
             rb.transform.up = newDir;
             if (durability <= 0) {
-                DestroyProjectile();
+                StartCoroutine(DestroyProjectile());
             }
         }
     }
@@ -60,7 +60,7 @@ public class LightShellBehaviour : ProjectileBehaviour {
         Health health = collision.GetComponentInParent<Health>();
         if (health != null) {
             health.TakeDamage(damage);
-            DestroyProjectile();
+            StartCoroutine(DestroyProjectile());
         }
     }
 }

@@ -479,7 +479,7 @@ PrefabInstance:
     - target: {fileID: 2039933225706113125, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 3412875855320464894, guid: 24a1c63184bb4b34aaddf46706b1e381, type: 3}
+      objectReference: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
     - target: {fileID: 5549373910267149391, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: skill
       value: 
