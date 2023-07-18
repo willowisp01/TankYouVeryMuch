@@ -821,10 +821,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2039933225706113125, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: projectilePrefab
+    - target: {fileID: 5549373910267149391, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+      propertyPath: skill
       value: 
-      objectReference: {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
+      objectReference: {fileID: 11400000, guid: 74a991b075e838541886b43964377eac, type: 2}
     - target: {fileID: 8091733512695735154, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -873,25 +873,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerTank
       objectReference: {fileID: 0}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 214486618}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TankDefeated
-      objectReference: {fileID: 0}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameLogic, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8295406131927581983, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
-      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+    - target: {fileID: 8613518996440690591, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+      propertyPath: health
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}

@@ -25,14 +25,6 @@ public class SpeedConsumable : Consumable {
         Destroy(gameObject, duration + 0.1f); //not a pretty way of doing it 
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.CompareTag("PlayerHull") && !isUsed) {
-            isUsed = true;
-            playerTank = other.transform.parent.gameObject;
-            Consume();
-        }
-    }
-
     private void IncreaseSpeed(float newSpeed) {
         if (playerMovement != null) {
             playerMovement.UpdateSpeed(newSpeed);

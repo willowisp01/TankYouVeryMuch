@@ -20,7 +20,7 @@ public class LightShellBehaviour : ProjectileBehaviour {
         if (isBuffed) {
             damage += damageBuff;
         }
-        Invoke("DestroyProjectile", duration); // We set up a timer for the projectile to be destroyed
+        StartCoroutine(DestroyAfterDuration(duration));
         oldVelocity = rb.velocity; // Get the starting velocity of the projectile
     }
 
@@ -29,15 +29,14 @@ public class LightShellBehaviour : ProjectileBehaviour {
     }
 
     // Method to destroy the projectiles
-    public override void DestroyProjectile() {
+    public override IEnumerator DestroyProjectile() {
         // We disable the sprite renderer and physics so it is as if the projectile is no longer there
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Rigidbody2D>().simulated = false;
         GetComponent<CircleCollider2D>().enabled = false;
         // When the audio clip is done playing, we destroy the projectile
-        if (!GetComponent<AudioSource>().isPlaying) {
-            Destroy(gameObject);
-        }
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
+        Destroy(gameObject);
     }
 
     public override void Buff() {
@@ -52,7 +51,7 @@ public class LightShellBehaviour : ProjectileBehaviour {
             Vector2 newDir = Vector2.Reflect(oldVelocity, collision.GetContact(0).normal);
             rb.transform.up = newDir;
             if (durability <= 0) {
-                DestroyProjectile();
+                StartCoroutine(DestroyProjectile());
             }
         }
     }
@@ -61,7 +60,7 @@ public class LightShellBehaviour : ProjectileBehaviour {
         Health health = collision.GetComponentInParent<Health>();
         if (health != null) {
             health.TakeDamage(damage);
-            DestroyProjectile();
+            StartCoroutine(DestroyProjectile());
         }
     }
 }
