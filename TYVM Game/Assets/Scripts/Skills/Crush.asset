@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillName: Crush
   cooldown: 5
-  activeTime: 0.5
+  activeTime: 0.42
   uses: 2
+  CrushCirclePrefab: {fileID: 6723074404917898411, guid: 666bbbf2c6674d94d8507971aebf82a4, type: 3}

@@ -6,7 +6,12 @@ using UnityEngine;
 
 public class Crush : Skill
 {
+    [SerializeField]
+    private GameObject CrushCirclePrefab;
     public override void Activate(GameObject player) {
-        Debug.Log("crush");
+        Transform playerTransform = player.transform.Find("Hull");
+        GameObject ccPrefab = Instantiate(CrushCirclePrefab, playerTransform.position, playerTransform.rotation);
+        Destroy(ccPrefab, activeTime);
     }
+
 }
