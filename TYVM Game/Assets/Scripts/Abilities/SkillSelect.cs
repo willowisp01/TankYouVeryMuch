@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkillSelect : MonoBehaviour {
 
     [SerializeField]
-    private Skill skill; // The skill chosen
+    public Skill skill; // The skill chosen
     private float cooldown; // The cooldown before the skill can be activated again
     private float activeTime; // The time the skill will be active for
     private float uses; // The number of times the skill can be used

@@ -16,7 +16,7 @@ public class Homing : Skill
         playerControl = player.GetComponent<PlayerControl>();
         playerControl.Disable();
         projectileSourceTransform = player.transform.Find("Tower/ProjectileSource");
-        Instantiate(projectilePrefab, projectileSourceTransform.position, projectileSourceTransform.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, projectileSourceTransform.position, projectileSourceTransform.rotation);
     }
 
 }
