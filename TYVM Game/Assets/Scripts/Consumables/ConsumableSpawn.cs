@@ -43,7 +43,7 @@ public class ConsumableSpawn : MonoBehaviour {
         // We set up a filter to check if the consumable overlaps with any walls
         Collider2D[] overlap = new Collider2D[1];
         ContactFilter2D obstacleFilter = new ContactFilter2D();
-        obstacleFilter.SetLayerMask(LayerMask.NameToLayer("Obstacles", "BreakableWall"));
+        obstacleFilter.SetLayerMask(LayerMask.NameToLayer("Obstacles"));
         consumable.GetComponent<Collider2D>().OverlapCollider(obstacleFilter, overlap);
         if (overlap[0] != null) { // If there is an overlap, we destroy the current consumable and call Spawn() again
             Destroy(consumable);
