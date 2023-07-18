@@ -16,6 +16,7 @@ public class SkillSelect : MonoBehaviour {
         CannotUse, // The skill cannot be used
     }
 
+    [SerializeField]
     SkillState state = SkillState.CanUse; // The skill can be used at the start
 
     [SerializeField]
@@ -23,23 +24,24 @@ public class SkillSelect : MonoBehaviour {
 
     private void Awake() {
         uses = skill.uses;
+        cooldown = skill.cooldown;
+        activeTime = skill.activeTime;
     }
 
     // Update is called once per frame
     private void Update() {
-        if (Input.GetKeyDown(activationKey) && state == SkillState.CanUse) {
+        if (Input.GetKeyDown(activationKey) && state == SkillState.CanUse && uses > 0) {
             Coroutine skillCycle = StartCoroutine(SkillCycle());
         }
     }
 
     private IEnumerator SkillCycle() {
         state = SkillState.CannotUse;
-        if (uses <= 0) {
-            yield break;
-        }
         skill.Activate(gameObject);
         uses--;
         yield return new WaitForSeconds(cooldown);
-        state = SkillState.CanUse;
+        if (uses > 0) {
+            state = SkillState.CanUse;
+        }
     }
 }
