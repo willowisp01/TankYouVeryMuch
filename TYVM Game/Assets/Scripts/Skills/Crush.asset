@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b190570ae76c0744ea1452c48d0fc8e0, type: 3}
   m_Name: Crush
   m_EditorClassIdentifier: 
-  skillName: 
-  cooldown: 0
-  activeTime: 0
-  uses: 0
+  skillName: Crush
+  cooldown: 5
+  activeTime: 0.5
+  uses: 2

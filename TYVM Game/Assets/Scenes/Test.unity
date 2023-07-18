@@ -483,7 +483,7 @@ PrefabInstance:
     - target: {fileID: 5549373910267149391, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: 4c73ffaa467970747b9cd02ef0d5bc55, type: 2}
+      objectReference: {fileID: 11400000, guid: b1d6df38ac35be04e96fc32a658a6a8b, type: 2}
     - target: {fileID: 8091733512695735154, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_RootOrder
       value: 8
