@@ -6,15 +6,21 @@ using UnityEngine;
 public class SaveDataManager : MonoBehaviour {
 
     [System.Serializable]
+    public class SaveData {
+        public string stagesCompletedTo = "Stage 1";
+        public Settings settings;
+    }
+
+    [System.Serializable]
+    public class Settings {
+        public float volume;
+    }
+
+    [System.Serializable]
     public class PlayerCustomisation {
         public int appearance;
         public int projectile;
         public int skill;
-    }
-
-    [System.Serializable]
-    public class SaveData {
-        public string stagesCompletedTo = "Stage 1";
     }
 
     private static SaveData saveData;
@@ -56,6 +62,10 @@ public class SaveDataManager : MonoBehaviour {
 
     public static void SaveStages(string stageNum) {
         saveData.stagesCompletedTo = stageNum;
+    }
+
+    public static void SaveVolume(float volume) {
+        saveData.settings.volume = volume;
     }
 
     // This triggers before the application quits
