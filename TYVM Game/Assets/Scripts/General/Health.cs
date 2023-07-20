@@ -8,6 +8,9 @@ public abstract class Health : MonoBehaviour {
     [SerializeField]
     public float health = 3f;
 
+    [SerializeField]
+    protected HealthBar healthBar;
+
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
