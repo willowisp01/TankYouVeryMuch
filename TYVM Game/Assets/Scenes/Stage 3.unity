@@ -553,6 +553,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 490418060, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490418060, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2039933225706113125, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: projectilePrefab
       value: 
@@ -567,11 +575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8091733512695735154, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.68
+      value: -21.3
       objectReference: {fileID: 0}
     - target: {fileID: 8091733512695735154, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8091733512695735154, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -980,6 +988,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 290852125, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290852125, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 95117046746600051, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: uniqueID
       value: 1622287781125641196
@@ -1419,6 +1435,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 290852125, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290852125, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 95117046746600051, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: uniqueID
       value: 5256573305661284485
@@ -1966,6 +1990,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 290852125, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290852125, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 95117046746600051, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: uniqueID
       value: 365725885206048060
@@ -2185,6 +2217,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 290852125, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 290852125, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3755867431301601636, guid: b2dd73fb7bae7ef4089532d68e830c09, type: 3}
       propertyPath: m_Name
       value: EnemyTankA

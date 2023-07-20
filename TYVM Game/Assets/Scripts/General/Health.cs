@@ -16,6 +16,7 @@ public abstract class Health : MonoBehaviour {
         if (health <= 0) {
             DestroySelf();
         }
+        healthBar?.SetHealth(health); //if not null (i.e. if this gameObject has a healthbar)
     }
 
     // In general, we destroy any GameObject by setting its active state to false 

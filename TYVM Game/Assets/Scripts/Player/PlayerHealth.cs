@@ -15,10 +15,14 @@ public class PlayerHealth : Health {
         this.health += health;
     }
 
+    private void Start() {
+        healthBar.SetMaxHealth(health);
+    }
+
     public void Update() { 
         healthBar.transform.position = transform.Find("Hull").transform.position + new Vector3(0, verticalOffset, 0);
     }
-    
+
     protected override void DestroySelf() {
         onPlayerDeath.TriggerEvent();
         base.DestroySelf();
