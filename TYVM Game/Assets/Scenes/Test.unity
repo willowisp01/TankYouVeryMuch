@@ -483,11 +483,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 490418060, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+    - target: {fileID: 537515364, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 490418060, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
+    - target: {fileID: 537515364, guid: d02f248f7aa941e4784fa15a6b93b4ef, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
