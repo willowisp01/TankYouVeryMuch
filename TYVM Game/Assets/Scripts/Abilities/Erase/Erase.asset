@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Erase
   m_EditorClassIdentifier: 
   skillName: Erase
-  cooldown: 5
+  cooldown: 3
   activeTime: 0.5
   uses: 2
+  sparkPrefab: {fileID: 2574118137167963172, guid: 353c6d730301a114f8136b70bc8edd83, type: 3}

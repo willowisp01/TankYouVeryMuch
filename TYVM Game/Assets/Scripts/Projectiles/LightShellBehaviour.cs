@@ -39,6 +39,10 @@ public class LightShellBehaviour : ProjectileBehaviour {
         Destroy(gameObject);
     }
 
+    public void EraseProjectile() {
+        StartCoroutine(DestroyProjectile());
+    }
+
     public override void Buff() {
         damage += 1;
     }
