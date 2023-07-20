@@ -679,6 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91681a7c3621b24f82f31dd6a655aea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  verticalOffset: 3
   skillBar: {fileID: 49092211}
   skill: {fileID: 11400000, guid: 74a991b075e838541886b43964377eac, type: 2}
   state: 0
@@ -1611,7 +1612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4634972563772079779, guid: 8d23a711acc3819459db0a1cabfe6ac9, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 92.5702
+      value: 80.06223
       objectReference: {fileID: 0}
     - target: {fileID: 4634972563772079779, guid: 8d23a711acc3819459db0a1cabfe6ac9, type: 3}
       propertyPath: m_LocalScale.x
@@ -1655,11 +1656,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4634972563772079779, guid: 8d23a711acc3819459db0a1cabfe6ac9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.122199535
+      value: 0.0303
       objectReference: {fileID: 0}
     - target: {fileID: 4634972563772079779, guid: 8d23a711acc3819459db0a1cabfe6ac9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.5365999
+      value: 2.4833746
       objectReference: {fileID: 0}
     - target: {fileID: 4634972563772079779, guid: 8d23a711acc3819459db0a1cabfe6ac9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

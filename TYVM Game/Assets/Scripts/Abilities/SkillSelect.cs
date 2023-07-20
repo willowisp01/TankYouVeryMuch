@@ -5,6 +5,9 @@ using UnityEngine;
 public class SkillSelect : MonoBehaviour {
 
     [SerializeField]
+    float verticalOffset = 3;
+
+    [SerializeField]
     SkillBar skillBar;
 
     [SerializeField]
@@ -38,6 +41,7 @@ public class SkillSelect : MonoBehaviour {
             Coroutine skillCycle = StartCoroutine(SkillCycle());
             skillBar.UseSkill();
         }
+        skillBar.transform.position = transform.Find("Hull").transform.position + new Vector3(0, verticalOffset, 0);
     }
 
     private IEnumerator SkillCycle() {
