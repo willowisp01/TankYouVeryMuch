@@ -5,6 +5,12 @@ using UnityEngine;
 public class SkillSelect : MonoBehaviour {
 
     [SerializeField]
+    float verticalOffset = 3;
+
+    [SerializeField]
+    SkillBar skillBar;
+
+    [SerializeField]
     public Skill skill; // The skill chosen
     private float cooldown; // The cooldown before the skill can be activated again
     private float activeTime; // The time the skill will be active for
@@ -26,13 +32,16 @@ public class SkillSelect : MonoBehaviour {
         uses = skill.uses;
         cooldown = skill.cooldown;
         activeTime = skill.activeTime;
+        skillBar.cooldown = cooldown;  
     }
 
     // Update is called once per frame
     private void Update() {
         if (Input.GetKeyDown(activationKey) && state == SkillState.CanUse && uses > 0) {
             Coroutine skillCycle = StartCoroutine(SkillCycle());
+            skillBar.UseSkill();
         }
+        skillBar.transform.position = transform.Find("Hull").transform.position + new Vector3(0, verticalOffset, 0);
     }
 
     private IEnumerator SkillCycle() {
