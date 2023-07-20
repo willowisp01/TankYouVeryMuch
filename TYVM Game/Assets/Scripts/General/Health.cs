@@ -6,10 +6,18 @@ using UnityEngine.Events;
 public abstract class Health : MonoBehaviour {
 
     [SerializeField]
-    protected float health = 3f;
+    private HealthBar healthBar;
+
+    [SerializeField]
+    public float health = 3f;
+
+    private void Start() {
+        healthBar.SetMaxHealth(health);
+    }
 
     public void TakeDamage(float damage) {
         health -= damage;
+        healthBar.SetHealth(health);
         if (health <= 0) {
             DestroySelf();
         }
