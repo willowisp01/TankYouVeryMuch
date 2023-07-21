@@ -559,7 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d67aa633f4b1a409fd18d2290ec01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appearanceChoice: {fileID: 11400000, guid: 9bfb2018de6362d42991e40f19edd524, type: 2}
+  appearance: {fileID: 11400000, guid: 41acc463a06a467419a3a6e16945efc0, type: 2}
 --- !u!114 &-1673070164584300328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verticalOffset: 3
   skillBar: {fileID: 49092211}
-  skill: {fileID: 11400000, guid: 74a991b075e838541886b43964377eac, type: 2}
+  skill: {fileID: 11400000, guid: 4c73ffaa467970747b9cd02ef0d5bc55, type: 2}
   state: 0
   activationKey: 113
 --- !u!114 &4285294259222718727

@@ -14,7 +14,9 @@ public class Settings : MonoBehaviour {
     private GameEventListener resumeListener;
 
     private void Awake() {
-        SaveDataManager.GetSaveData().settings.volume = volume;
+        volume = SaveDataManager.GetSaveData().settings.volume;
+        tempVolume = volume;
+        ChangeVolume();
         volumeSlider.value = volume;
         resumeListener.nextEvent.AddListener(Close);
     }

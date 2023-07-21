@@ -5,15 +5,16 @@ using UnityEngine.Events;
 
 public abstract class Health : MonoBehaviour {
 
-    [SerializeField]
     public float health = 3f;
 
     [SerializeField]
     protected HealthBar healthBar;
+    private bool isDead = false;
 
     public void TakeDamage(float damage) {
         health -= damage;
-        if (health <= 0) {
+        if (health <= 0 && !isDead) {
+            isDead = true;
             DestroySelf();
         }
         healthBar?.SetHealth(health); //if not null (i.e. if this gameObject has a healthbar)

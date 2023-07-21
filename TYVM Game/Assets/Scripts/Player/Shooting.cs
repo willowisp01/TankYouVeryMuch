@@ -56,4 +56,8 @@ public class Shooting : MonoBehaviour {
     public Transform GetFirePoint() {
         return firePoint;
     }
+
+    public void ChangeProjectile(GameObject projectile) {
+        projectilePrefab = projectile;
+    }
 }
