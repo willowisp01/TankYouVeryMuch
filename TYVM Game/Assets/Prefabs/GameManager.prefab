@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4266355885669489381}
   - component: {fileID: 6904506727955238326}
   - component: {fileID: -4617841881122955419}
+  - component: {fileID: -6898274332267884638}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -150,7 +151,7 @@ MonoBehaviour:
   - {fileID: 1806883884603259667, guid: 21764361a2399014384a0bb52cc3a5cb, type: 3}
   - {fileID: 7201967486285735207, guid: 1026ffe34a666b34cbda61ee2222b903, type: 3}
   - {fileID: 6535819699926410095, guid: e2ad0c0f3872c2845be0e18a450ae64c, type: 3}
-  cooldown: 10
+  cooldown: 5
   victoryListener: {fileID: -3091578655258356176}
   defeatListener: {fileID: 4015147938203014510}
 --- !u!114 &-4617841881122955419
@@ -165,3 +166,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b326fc9b5686d8d41a4a286256416744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6898274332267884638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266355885669489382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af75e8c79def941448a4f6fadc9aece7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appearanceChoices:
+  - {fileID: 11400000, guid: 41acc463a06a467419a3a6e16945efc0, type: 2}
+  - {fileID: 11400000, guid: 17e98f2d13354704a9723a7fcddc1558, type: 2}
+  projectileChoices:
+  - {fileID: 3412875855320464894, guid: 81f86985b8fc03b4584754611283d707, type: 3}
+  - {fileID: 3412875855320464894, guid: 24a1c63184bb4b34aaddf46706b1e381, type: 3}
+  abilityChoices:
+  - {fileID: 11400000, guid: 4c73ffaa467970747b9cd02ef0d5bc55, type: 2}
+  - {fileID: 11400000, guid: b1d6df38ac35be04e96fc32a658a6a8b, type: 2}
+  - {fileID: 11400000, guid: 74a991b075e838541886b43964377eac, type: 2}
+  player: {fileID: 0}

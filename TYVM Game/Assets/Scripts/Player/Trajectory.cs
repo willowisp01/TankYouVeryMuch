@@ -94,4 +94,15 @@ public class Trajectory : MonoBehaviour {
         lineRenderer.SetPositions(points.ToArray());
         points.Clear();
     }
+
+    public void ChangeTrajectory(int type) {
+        switch (type) {
+            case 0:
+                trajectoryMode = TrajectoryMode.Normal;
+                break;
+            case 1:
+                trajectoryMode = TrajectoryMode.Penetrate; 
+                break;
+        }
+    }
 }

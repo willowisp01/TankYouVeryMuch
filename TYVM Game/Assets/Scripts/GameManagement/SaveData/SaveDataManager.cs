@@ -9,18 +9,19 @@ public class SaveDataManager : MonoBehaviour {
     public class SaveData {
         public string stagesCompletedTo = "Stage 1";
         public Settings settings;
+        public Customisation playerCustomisation;
     }
 
     [System.Serializable]
     public class Settings {
-        public float volume;
+        public float volume = 1f;
     }
 
     [System.Serializable]
-    public class PlayerCustomisation {
+    public class Customisation {
         public int appearance;
         public int projectile;
-        public int skill;
+        public int ability;
     }
 
     private static SaveData saveData;
@@ -66,6 +67,16 @@ public class SaveDataManager : MonoBehaviour {
 
     public static void SaveVolume(float volume) {
         saveData.settings.volume = volume;
+    }
+
+    public static void SaveAppearance(int choice) {
+        saveData.playerCustomisation.appearance = choice;
+    }
+    public static void SaveProjectile(int choice) {
+        saveData.playerCustomisation.projectile = choice;
+    }
+    public static void SaveAbility(int choice) {
+        saveData.playerCustomisation.ability = choice;
     }
 
     // This triggers before the application quits
