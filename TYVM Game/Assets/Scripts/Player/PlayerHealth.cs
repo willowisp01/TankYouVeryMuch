@@ -10,11 +10,6 @@ public class PlayerHealth : Health {
 
     [SerializeField]
     private GameEvent onPlayerDeath;
-
-    public void RestoreHealth(float health) {
-        this.health += health;
-    }
-
     private void Start() {
         healthBar.SetMaxHealth(health);
     }
