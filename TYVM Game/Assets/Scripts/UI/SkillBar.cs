@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkillBar : MonoBehaviour
-{
+public class SkillBar : MonoBehaviour {
+
     public Slider slider;
     public Gradient gradient;
     public Image fill;
@@ -13,7 +13,7 @@ public class SkillBar : MonoBehaviour
     private float waitTime = 0;
     public float cooldown;
 
-[SerializeField]
+    [SerializeField]
     private bool onCooldown = false;
 
     private void Start() {
@@ -40,5 +40,4 @@ public class SkillBar : MonoBehaviour
     public void UseSkill() {
         onCooldown = true;
     }
-
 }

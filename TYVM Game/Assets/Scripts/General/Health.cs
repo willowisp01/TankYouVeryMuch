@@ -16,7 +16,6 @@ public abstract class Health : MonoBehaviour {
         healthBar?.SetHealth(this.health); //if not null (i.e. if this gameObject has a healthbar)
     }
 
-
     public void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0 && !isDead) {
