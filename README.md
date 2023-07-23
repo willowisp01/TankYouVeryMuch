@@ -1,4 +1,5 @@
-﻿# **Tank You Very Much (Milestone 2)**
+﻿# **Tank You Very Much**
+
 
 # About Our Game 
 
@@ -7,7 +8,7 @@ Tanks is a classic game in which players control a tank, and aim to destroy othe
 
 # Download our Game
 
-[Milestone 2 Final Build](https://drive.google.com/drive/folders/1nvKWqYngYaNDj9_ZiBfzoPsUC-Kbnf1s?usp=sharing)
+[Final Build](https://drive.google.com/drive/folders/1VCTqSJvNQEKdjAH97eeg_r46ucWtg4Dw) (Click on download all)
 
 
 # Controls
@@ -15,8 +16,8 @@ Tanks is a classic game in which players control a tank, and aim to destroy othe
 
 
 * WASD or arrow keys to move
-* Left click to aim
-* Press Q for ability (currently, destroys all enemy projectiles) 
+* Mouse to aim, left click to shoot
+* Press Q for ability 
 
 
 # Team Members
@@ -33,16 +34,17 @@ Ronn Ng Kheng Keat
 
 Poster:
 
-[Orbital Poster Milestone 2](https://drive.google.com/file/d/1I-O8HEkhNohGS9AhP40atUbyQ0NpzMCz/view?usp=sharing)
+[Orbital Poster Milestone 3](https://drive.google.com/file/d/1VxKWso8mlHedYzABKuTznweeQphLOE4W/view?usp=drive_link)
 
 Video:
 
-[Orbital Video Milestone 2](https://drive.google.com/file/d/1wc6PIzbOJg6Rq5YYGGVicl7PGMQtHrBL/view?usp=sharing)
+[Orbital Video Milestone 3](https://drive.google.com/file/d/1wutUTECohtHzed3rREi2jJR5DtG00h-X/view?usp=drive_link)
 
 
-## Full Project Documentation (Milestone 2) 
+## Full Project Documentation 
 
-[Milestone 2 Project Report](https://docs.google.com/document/d/1GqZdXqXtPcaInxrY5Vnpa2w_KI4ZNv5t50SToggiQ_E/edit#heading=h.21seba9k8p0t)   
+[Milestone 3 Project Report](https://docs.google.com/document/d/1fb3C1ji4IC6sgvJxnSCTqB1ZjHnjPHPRf9jR_3umb00/edit#heading=h.21seba9k8p0t)
+
 
 ## Project Log
 
